@@ -1,0 +1,196 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include "tagtuple.h"
+#include "utils.h"
+#include "syntax.h"
+
+typedef struct {
+    int line;
+    union {
+        tag_tuple * tag_tuple;
+        char *text;
+    } value;
+} parse_result;
+
+typedef struct {
+    int current_line;
+    int lines_read;
+    int interactive;
+    FILE *stream;
+    char last_read_char[2];
+    parse_output output;
+} state;
+
+#define YYSTYPE parse_result
+#define YY_CTX_LOCAL
+#define YY_CTX_MEMBERS state state;
+
+#define YY_INPUT(yy, buf, result, max_size)             \
+  {                                                     \
+    int yyc= getc(yy->state.stream);                    \
+    result= (EOF == yyc) ? 0 : (*(buf)= yyc, 1);        \
+    yy->state.lines_read += yyc == '\n'                 \
+    yyprintf((stderr, "<%c>", yyc));                    \
+    yy->state.last_read_char[0] = yyc;                  \
+  }
+
+static parse_result result(tag_tuple * tag_tuple) {
+    parse_result result;
+    result.line = tag_tuple != NULL ? tag_tuple->line_number : -1;
+    result.value.tag_tuple = tag_tuple;
+    return result;
+}
+
+static parse_result result_arg_list(tag_tuple *head, parse_result *tail) {
+    tag_tuple * previous_head = tail != NULL ? tail->value.tag_tuple : NULL;
+    if (head != NULL)
+        head->next = previous_head;
+    else
+        head = previous_head;
+    return result(head);
+}
+
+static parse_result result_text(int line, char *text) {
+    parse_result result;
+    result.line = line;
+    result.value.text = clone_string(text);
+    return result;
+}
+
+static parse_result result_line(state *state) {
+    parse_result result;
+    result.line = state->current_line;
+    result.value.tag_tuple = NULL;
+    result.value.text = NULL;
+    return result;
+}
+
+static void error(state *state, parse_error_code code, operation op, char *text) {
+    if (state->output.error_code != PARSE_ERROR_OK)
+        return; 
+    tag_tuple * const root = state->output.error_code == PARSE_ERROR_OK ? state->output.value.root : NULL;
+    state->output.error_code = code; 
+    state->output.value.error.op = op;
+    if (text != NULL) {
+        int len = sizeof(state->output.value.error.text) - 1;
+        strncpy(state->output.value.error.text, text, len);
+        state->output.value.error.text[len] = '\0';
+    } else {
+        state->output.value.error.text[0] = '\0';
+    }
+    state->output.value.error.line = state->lines_read + 1;
+    state->output.value.error.leftover = root;
+}
+
+static void output(state *state, tag_tuple * root) {     
+    state->output.error_code = PARSE_ERROR_OK;
+    release_tagtuple(state->output.value.root);
+    state->output.value.root = root;
+}
+#define WHITE_SPACE(X) ((X) == ' ' || (X) == '\t' || (X) == '\r' || (X) == '\n')
+
+static void unexpexted_character_error(state *state, char *buf, int pos, int len) {
+  // if (pos > 0 && pos < len && !WHITE_SPACE(buf[pos - 1]))  
+  //      state->last_read_char[0] = buf[pos - 1];
+    if (state->last_read_char[0] <= 0)
+        error(state, PARSE_ERROR_END_OF_INPUT, 0, "");    
+    else
+        error(state, PARSE_ERROR_UNEXPECTED_CHAR, 0, state->last_read_char);
+}
+
+%}
+
+
+Stmt    = - e:Expr EOF                  { output(&yy->state, e.value.tag_tuple); }
+        | (!EOF . )* EOF                { error(&yy->state, PARSE_ERROR_NEAR, 0, yytext); }
+
+Expr    = s:Sum                         { $$ = s; }
+
+Sum     = l:Product                   
+                ( op:PLUS r:Product     ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_ADD, NULL)}
+                                        { l = result(make_exp(op.line, OP_ADD, l.value.tag_tuple, r.value.tag_tuple)); }
+                | op:MINUS r:Product    ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_SUB, NULL)}
+                                        { l = result(make_exp(op.line, OP_SUB, l.value.tag_tuple, r.value.tag_tuple)); }
+                )*                      { $$ = l; }
+
+Product = l:Value
+                ( op:TIMES  r:Value     ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_MUL, NULL)}      
+                                        { l = result(make_exp(op.line, OP_MUL, l.value.tag_tuple, r.value.tag_tuple));  }
+                | op:DIVIDE r:Value     ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_DIV, NULL)}
+                                        { l = result(make_exp(op.line, OP_DIV, l.value.tag_tuple, r.value.tag_tuple));  }
+                )*                      { $$ = l; }
+
+Value   = i:NUMBER                                              { $$ = i; }
+        | s:String                                              { $$ = s; }
+        | t:TAG_OR_EMPTY OPEN a:Arguments CLOSE                 { $$ = result(make_tuple(t.line, t.value.text, 1, a.value.tag_tuple)); }
+        | t:TAG_OR_EMPTY OPEN_BRACKET a:Arguments CLOSE_BRACKET { $$ = result(make_block(t.line, t.value.text, 1, a.value.tag_tuple)); }
+        | t:TAG                                                 { $$ = result(make_tag(t.line, t.value.text, 1)); }
+
+Arguments = a:ArgList             { $$ = a; }
+          | -                     { $$ = result_arg_list(NULL, NULL);}
+
+ArgList = e:Expr                       ~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
+            COMMA                     # ~{ unexpexted_character_error(&yy->state, yy->__buf, yy->__pos, yy->__buflen);}
+            l:ArgList                  ~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
+                                       { $$ = result_arg_list(e.value.tag_tuple, &l);}
+        | e:Expr                       { $$ = result_arg_list(e.value.tag_tuple, NULL);}
+       
+
+String =  q:QUOTES < ( !["] Char )* > QUOTES - {$$ = result(make_string(q.line, yytext)); } #"
+Char =    '\\' [abefnrtv'"\[\]\\]
+     |    '\\' [0-3][0-7][0-7]
+     |    '\\' [0-7][0-7]?
+     |   !'\\' ( EOL | . )
+
+NUMBER          = s:SOME < '-'? - ( [0-9]*'.'[0-9]*| [0-9]+ ) >    -  { $$ = result(make_number(s.line, atof(yytext))); }
+TAG             = s:SOME <[_a-zA-Z] ('.' | [_a-zA-Z0-9])*>         -  { $$ = result_text(s.line, yytext); }
+TAG_OR_EMPTY    = TAG |                                            -    { $$ = result_text(yy->state.current_line, ""); }          
+SOME            = &.                                               -    { $$ = result_line(&yy->state); } #only used to get the line number
+PLUS            = s:SOME '+'                                       -    { $$ = s; } #only used to get the line number
+MINUS           = s:SOME '-'                                       -    { $$ = s; } #only used to get the line number
+TIMES           = s:SOME '*'                                       -    { $$ = s; } #only used to get the line number
+DIVIDE          = s:SOME '/'                                       -    { $$ = s; } #only used to get the line number
+OPEN            = s:SOME '('                                       -    { $$ = s; } #only used to get the line number
+CLOSE           = s:SOME ')'                                       -
+OPEN_BRACKET    = '{'                                       -
+CLOSE_BRACKET   = '}'                                       -
+COMMA           = ','                                       -
+QUOTES          = '"'           - #"
+-       = ([ \t] | EOL)*
+EOL     = ('\n' | '\r\n' | '\r')  { yy->state.current_line++; printf("line %d\n", yy->state.current_line);}
+EOF     = (&{yy->state.interactive} ';;;' EOL | !.) ~{ unexpexted_character_error(&yy->state, yy->__buf, yy->__pos, yy->__buflen); } 
+%%
+
+static void init_iteractive_state(state *state) {
+    state->interactive = 1;
+    state->stream = stdin;
+}
+
+void tagtuple_interactive(void (*run)(parse_output output)) {
+    if (run == NULL)
+        return;
+    yycontext ctx;
+    memset(&ctx, 0, sizeof(yycontext));
+    init_iteractive_state(&ctx.state);
+    while (yyparse(&ctx)) {
+        const parse_output output = ctx.state.output;
+        run(output);
+        if (feof(ctx.state.stream))
+            break;
+        memset(&ctx.state, 0, sizeof(state));
+        init_iteractive_state(&ctx.state);
+    }
+    yyrelease(&ctx);
+}
+
+parse_output tagtuple_parse(FILE *stream) {
+    yycontext ctx;
+    memset(&ctx, 0, sizeof(yycontext));
+    ctx.state.interactive = 0;
+    ctx.state.stream = stream;
+    yyparse(&ctx);
+    const parse_output output = ctx.state.output;
+    yyrelease(&ctx);
+    return output;
+}
