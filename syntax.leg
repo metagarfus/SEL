@@ -81,11 +81,16 @@ static void error(state *state, parse_error_code code, operation op, char *text)
     }
     state->output.value.error.line = state->lines_read + 1;
     state->output.value.error.leftover = root;
+    if (root != NULL)
+        fprintf(stderr, "LEFTOVER\n");
 }
 
-static void output(state *state, tag_tuple * root) {     
+static void output(state *state, tag_tuple * root) {
+    if (state->output.error_code == PARSE_ERROR_OK)
+        release_tagtuple(state->output.value.root);
+    else     
+        release_tagtuple(state->output.value.error.leftover);
     state->output.error_code = PARSE_ERROR_OK;
-    release_tagtuple(state->output.value.root);
     state->output.value.root = root;
 }
 #define WHITE_SPACE(X) ((X) == ' ' || (X) == '\t' || (X) == '\r' || (X) == '\n')
@@ -130,7 +135,7 @@ Value   = i:NUMBER                                              { $$ = i; }
 Arguments = a:ArgList             { $$ = a; }
           | -                     { $$ = result_arg_list(NULL, NULL);}
 
-ArgList = e:Expr                       ~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
+ArgList = e:Expr                       #~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
             COMMA                     # ~{ unexpexted_character_error(&yy->state, yy->__buf, yy->__pos, yy->__buflen);}
             l:ArgList                  ~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
                                        { $$ = result_arg_list(e.value.tag_tuple, &l);}
