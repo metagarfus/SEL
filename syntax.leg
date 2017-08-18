@@ -9,7 +9,11 @@ typedef struct {
     int line;
     union {
         tag_tuple * tag_tuple;
+        value_data_type_t *data_type;
+        mapping_t *mapping;
+        declaration_t *declaration;
         char *text;
+        access_path_t *access_path;
     } value;
 } parse_result;
 
@@ -36,7 +40,7 @@ typedef struct {
   }
 
 static parse_result result(tag_tuple * tag_tuple) {
-    parse_result result;
+    parse_result result = {0};
     result.line = tag_tuple != NULL ? tag_tuple->line_number : -1;
     result.value.tag_tuple = tag_tuple;
     return result;
@@ -49,6 +53,61 @@ static parse_result result_arg_list(tag_tuple *head, parse_result *tail) {
     else
         head = previous_head;
     return result(head);
+}
+
+static parse_result result_mapping(mapping_t * mapping) {
+    parse_result result;
+    result.line = mapping != NULL ? mapping->line_number : -1;
+    result.value.mapping = mapping;
+    return result;
+}
+
+static parse_result result_maps_list(mapping_t *head, parse_result *tail) {
+    mapping_t * previous_head = tail != NULL ? tail->value.mapping : NULL;
+    if (head != NULL)
+        head->next = previous_head;
+    else
+        head = previous_head;
+    return result_mapping(head);
+}
+
+static parse_result result_declaration(declaration_t * declaration) {
+    parse_result result;
+    result.line = declaration != NULL ? declaration->line_number : -1;
+    result.value.declaration = declaration;
+    return result;
+}
+
+static parse_result result_decl_list(declaration_t *head, parse_result *tail) {
+    declaration_t * previous_head = tail != NULL ? tail->value.declaration : NULL;
+    if (head != NULL)
+        head->next = previous_head;
+    else
+        head = previous_head;
+    return result_declaration(head);
+}
+
+static parse_result result_access_path(access_path_t *access_path) {
+    parse_result result;
+    result.line = access_path != NULL ? access_path->line_number : -1;
+    result.value.access_path = access_path;
+    return result;
+}
+
+static parse_result result_access_path_list(access_path_t *head, parse_result *tail) {
+    access_path_t * previous_head = tail != NULL ? tail->value.access_path : NULL;
+    if (head != NULL)
+        head->next = previous_head;
+    else
+        head = previous_head;
+    return result_access_path(head);
+}
+
+static parse_result result_datatype(value_data_type_t * data_type) {
+    parse_result result;
+    result.line = data_type != NULL ? data_type->line_number : -1;
+    result.value.data_type = data_type;
+    return result;
 }
 
 static parse_result result_text(int line, char *text) {
@@ -107,10 +166,90 @@ static void unexpexted_character_error(state *state, char *buf, int pos, int len
 %}
 
 
-Stmt    = - e:Expr EOF                  { output(&yy->state, e.value.tag_tuple); }
+Stmt    = - d:Definitions EOF           { output(&yy->state, make_definitions(d.line, d.value.tag_tuple)); }
         | (!EOF . )* EOF                { error(&yy->state, PARSE_ERROR_NEAR, 0, yytext); }
 
-Expr    = s:Sum                         { $$ = s; }
+Definitions = d:Definition l:Definitions  { $$ = result_arg_list(d.value.tag_tuple, &l);}
+            | d:Definition                { $$ = result_arg_list(d.value.tag_tuple, NULL);}
+
+Definition = f : Function                                                { $$ = f;  } 
+            | i:INCLUDE e:Expr                                           { $$ = result(make_include(i.line, e.value.tag_tuple));  } 
+            | tp:TYPEDEF t:TAG a:ArrayType                               { $$ = result(make_typedef(tp.line, t.value.text, 1, a.value.data_type));  }
+            | tp:TYPEDEF t:TAG                                           { $$ = result(make_typedef(tp.line, t.value.text, 1, NULL));  }
+            | s:STATIC v:VarDeclaration EQUALS i:Expr                    { $$ = result(make_static(s.line, v.value.declaration, i.value.tag_tuple, NULL));  } 
+            #| CONSTANT v:VarDeclaration EQUALS (INTEGER | DOUBLE_VALUE | String)                       { $$ = s; } 
+            | d:DATATYPE t:TAG ar:ArrowType OPEN a:VarDeclarations CLOSE e:Expr 
+                   WITH OPEN f:FunctionList CLOSE                        { $$ = result(make_datatype(d.line, t.value.text, 1, ar.value.data_type, 
+                                                                                        a.value.declaration, e.value.tag_tuple, f.value.tag_tuple));  }
+
+Function = f:FUNCTION v:VarDeclaration OPEN a:VarDeclarations CLOSE e:Expr { $$ = result(make_function(f.line, v.value.declaration, a.value.declaration, 
+                                                                                                        e.value.tag_tuple));  } 
+         | p:PROTOTYPE v:VarDeclaration OPEN a:VarDeclarations CLOSE       { $$ = result(make_function(p.line, v.value.declaration, a.value.declaration, 
+                                                                                                        NULL));  }
+         #| EXTERNAL VarDeclaration OPEN VarDeclarations CLOSE
+
+
+FunctionList = f:Function l:FunctionList { $$ = result_arg_list(f.value.tag_tuple, &l);}
+             | f:Function                { $$ = result_arg_list(f.value.tag_tuple, NULL);}
+
+ArrowType   = p:PointerType ARROW a:ArrowType { $$ = result_datatype(make_arrow_type(p.line, p.value.data_type, a.value.data_type)) }
+            | p:PointerType                   { $$ = p; }
+
+PointerType = t:TIMES a:ArrayType                                  { $$ = result_datatype(make_pointer_type(t.line, a.value.data_type)) }
+            | t:TIMES s:SimpleType OPEN_S_BRACKET CLOSE_S_BRACKET  { $$ = result_datatype(make_array_pointer_type(t.line, s.value.data_type)) }
+            | a:ArrayType                                          { $$ = a }
+
+ArrayType   = s:SimpleType OPEN_S_BRACKET i:INTEGER CLOSE_S_BRACKET { $$ = result_datatype(make_array_type(s.line, s.value.data_type, i.value.tag_tuple))}
+            | s:SimpleType                                          { $$ = s }
+
+SimpleType = b:BYTE                                                 { $$ = result_datatype(make_byte_type(b.line))}
+           | i:INT                                                  { $$ = result_datatype(make_int_type(i.line))}
+           | l:LONG                                                 { $$ = result_datatype(make_long_type(l.line))}
+           | d:DOUBLE                                               { $$ = result_datatype(make_double_type(d.line))}
+           | o:OPEN_BRACKET v:VarDeclarationList CLOSE_BRACKET      { $$ = result_datatype(make_record_type(o.line, v.value.declaration))}
+           | b:BOX                                                  { $$ = result_datatype(make_box_type(b.line, NULL))}
+           | b:BOX s:SimpleType OPEN_S_BRACKET CLOSE_S_BRACKET      { $$ = result_datatype(make_array_box_type(b.line, s.value.data_type))}
+           | b:BOX s:SimpleType                                     { $$ = result_datatype(make_box_type(b.line, s.value.data_type))}
+           | d:DYNAMIC                                              { $$ = result_datatype(make_dynamic_type(d.line))}
+           | c:CHARS                                                { $$ = result_datatype(make_chars_type(c.line))}
+           | t:TAG                                                  { $$ = result_datatype(make_named_type(t.line, t.value.text, 1))}
+           | OPEN a:ArrowType CLOSE                                 { $$ = a }
+
+VarDeclarations = a:VarDeclarationList   { $$ = a; }
+                 | -                     { $$ = result_decl_list(NULL, NULL);}
+
+VarDeclarationList = v:VarDeclaration           #~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
+                    COMMA                     # ~{ unexpexted_character_error(&yy->state, yy->__buf, yy->__pos, yy->__buflen);}
+                    l:VarDeclarationList        ~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
+                                                 { $$ = result_decl_list(v.value.declaration, &l);}
+                    | v:VarDeclaration           { $$ = result_decl_list(v.value.declaration, NULL);}
+
+VarDeclaration = t:TAG COLON tp:ArrowType  {$$ = result_declaration(make_declaration(t.line, t.value.text, 1, tp.value.data_type));}       
+               | t:TAG                     {$$ = result_declaration(make_declaration(t.line, t.value.text, 1, NULL));}       
+
+Expr  = b:Boolean COLON a:ArrowType       { $$ = result(make_convert(b.line, b.value.tag_tuple, a.value.data_type)); }
+      | b:Boolean IS a:ArrowType          { $$ = result(make_is(b.line, b.value.tag_tuple, a.value.data_type)); }
+      | b:Boolean                         { $$ = b; }
+
+Boolean     = l:Compare                   
+                ( op:AND r:Compare     ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_ADD, NULL)}
+                                        { l = result(make_exp(op.line, OP_ADD, l.value.tag_tuple, r.value.tag_tuple)); }
+                | op:OR r:Compare      ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_SUB, NULL)}
+                                        { l = result(make_exp(op.line, OP_SUB, l.value.tag_tuple, r.value.tag_tuple)); }
+                )*   
+
+Compare     = l:Sum                   
+                ( op:LTE r:Sum        ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_ADD, NULL)}
+                                      { l = result(make_exp(op.line, OP_LTE, l.value.tag_tuple, r.value.tag_tuple)); }
+                | op:GTE r:Sum        ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_SUB, NULL)}
+                                      { l = result(make_exp(op.line, OP_GTE, l.value.tag_tuple, r.value.tag_tuple)); }
+                | op:LT r:Sum         ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_ADD, NULL)}
+                                      { l = result(make_exp(op.line, OP_LT, l.value.tag_tuple, r.value.tag_tuple)); }
+                | op:GT r:Sum        ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_SUB, NULL)}
+                                      { l = result(make_exp(op.line, OP_GT, l.value.tag_tuple, r.value.tag_tuple)); }
+                | op:EQ r:Sum        ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_SUB, NULL)}
+                                      { l = result(make_exp(op.line, OP_EQ, l.value.tag_tuple, r.value.tag_tuple)); }
+                )*                    { $$ = l; }
 
 Sum     = l:Product                   
                 ( op:PLUS r:Product     ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_ADD, NULL)}
@@ -119,18 +258,61 @@ Sum     = l:Product
                                         { l = result(make_exp(op.line, OP_SUB, l.value.tag_tuple, r.value.tag_tuple)); }
                 )*                      { $$ = l; }
 
-Product = l:Value
-                ( op:TIMES  r:Value     ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_MUL, NULL)}      
-                                        { l = result(make_exp(op.line, OP_MUL, l.value.tag_tuple, r.value.tag_tuple));  }
-                | op:DIVIDE r:Value     ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_DIV, NULL)}
-                                        { l = result(make_exp(op.line, OP_DIV, l.value.tag_tuple, r.value.tag_tuple));  }
-                )*                      { $$ = l; }
+Product = l:AssignOp
+                ( op:TIMES  r:AssignOp     ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_MUL, NULL)}      
+                                          { l = result(make_exp(op.line, OP_MUL, l.value.tag_tuple, r.value.tag_tuple));  }
+                | op:DIVIDE r:AssignOp     ~{ error(&yy->state, PARSE_ERROR_MISSING_OPERAND, OP_DIV, NULL)}
+                                          { l = result(make_exp(op.line, OP_DIV, l.value.tag_tuple, r.value.tag_tuple));  }
+                )*                        { $$ = l; }
 
-Value   = i:NUMBER                                              { $$ = i; }
-        | s:String                                              { $$ = s; }
-        | t:TAG_OR_EMPTY OPEN a:Arguments CLOSE                 { $$ = result(make_tuple(t.line, t.value.text, 1, a.value.tag_tuple)); }
-        | t:TAG_OR_EMPTY OPEN_BRACKET a:Arguments CLOSE_BRACKET { $$ = result(make_block(t.line, t.value.text, 1, a.value.tag_tuple)); }
-        | t:TAG                                                 { $$ = result(make_tag(t.line, t.value.text, 1)); }
+AssignOp = a:Access ASSIGN e:Expr                { $$ = result(make_assign(a.line, a.value.tag_tuple, e.value.tag_tuple)); } 
+         | a:Access                              { $$ = a }
+
+Access = v:Value a:AccessPathList { $$ = result(make_access(v.line, v.value.tag_tuple, a.value.access_path)); }
+       | v:Value                  { $$ = v }
+
+AccessPathList = a:AccessPath l:AccessPathList   { $$ = result_access_path_list(a.value.access_path, &l);}
+               | a:AccessPath                    { $$ = result_access_path_list(a.value.access_path, NULL);}
+
+AccessPath = d:DOT t:TAG                                 { $$ = result_access_path(make_record_access_path(d.line, t.value.text, 1)); }
+           | o:OPEN_S_BRACKET e:Expr CLOSE_S_BRACKET     { $$ = result_access_path(make_array_access_path(o.line, e.value.tag_tuple)); }
+
+Value = op:NOT v:Value                                                 { $$ = result(make_unary_exp(op.line, OP_NOT, v.value.tag_tuple)); }
+      | op:PLUS v:Value                                                { $$ = result(make_unary_exp(op.line, OP_PLUS, v.value.tag_tuple)); }
+      | op:MINUS v:Value                                               { $$ = result(make_unary_exp(op.line, OP_MINUS, v.value.tag_tuple)); }
+      | op:TIMES v:Value                                               { $$ = result(make_unary_exp(op.line, OP_DEREF, v.value.tag_tuple)); }
+      | op:AMPERSAND v:Value                                           { $$ = result(make_unary_exp(op.line, OP_REF, v.value.tag_tuple)); }
+      | op:CARDINAL v:Value                                            { $$ = result(make_unary_exp(op.line, OP_LEN, v.value.tag_tuple)); }
+      | op:DOLLAR v:Value                                              { $$ = result(make_unary_exp(op.line, OP_FREF, v.value.tag_tuple)); }
+      | op:BOX v:Value                                                 { $$ = result(make_unary_exp(op.line, OP_BOX, v.value.tag_tuple)); }
+      | op:UNBOX v:Value                                               { $$ = result(make_unary_exp(op.line, OP_UNBOX, v.value.tag_tuple)); }
+      | d:DOUBLE_VALUE                                                 { $$ = d; }
+      | i:INTEGER                                                      { $$ = i; }
+      | s:String                                                       { $$ = s; }
+      | b:BOX e:Expr OF OPEN t:TAG IN i:Expr CLOSE                     { $$ = result(make_box_of(b.line, e.value.tag_tuple, t.value.text, 1, i.value.tag_tuple)); }
+      | a:ARRAY e:Expr OF OPEN t:TAG IN i:Expr CLOSE                   { $$ = result(make_mut_array_of(a.line, e.value.tag_tuple, t.value.text, 1, i.value.tag_tuple)); }
+      | o:OPEN_S_BRACKET i:INTEGER OF t:TAG IN i:Expr CLOSE_S_BRACKET  { $$ = result(make_array_of(o.line, i.value.tag_tuple, t.value.text, 1, i.value.tag_tuple)); }
+      | n:NEW t:ArrowType OPEN a:Arguments CLOSE                       { $$ = result(make_new(n.line, t.value.data_type, a.value.tag_tuple)); } 
+      | l:LET v:VarDeclaration EQUALS i:Expr IN e:Expr                 { $$ = result(make_let(l.line, v.value.declaration, i.value.tag_tuple, 
+                                                                                    e.value.tag_tuple)); } 
+      | s:STATIC v:VarDeclaration EQUALS i:Expr IN e:Expr              { $$ = result(make_static(s.line, v.value.declaration, i.value.tag_tuple, 
+                                                                                    e.value.tag_tuple)); }                                                                      
+      | f:FOR v:VarDeclaration EQUALS i:Expr COMMA c:Expr COMMA p:Expr 
+            IN e:Expr                                                  { $$ = result(make_for(f.line, v.value.declaration, i.value.tag_tuple, 
+                                                                                    c.value.tag_tuple, p.value.tag_tuple, e.value.tag_tuple)); }
+      | f:FOREACH v:VarDeclaration FROM i:Expr IN e:Expr               { $$ = result(make_foreach(f.line, v.value.declaration, i.value.tag_tuple, 
+                                                                                                   e.value.tag_tuple)); } 
+      | w:WHILE c:Expr IN e:Expr                                       { $$ = result(make_while(w.line, c.value.tag_tuple, e.value.tag_tuple)); }
+      | i:IF c:Expr THEN t:Expr ELSE e:Expr                            { $$ = result(make_if(i.line, c.value.tag_tuple, t.value.tag_tuple, e.value.tag_tuple)); }
+      | o:OPEN v:VarDeclarationList APPLY e:Expr CLOSE                 { $$ = result(make_lambda(o.line, v.value.declaration, e.value.tag_tuple)); }
+      | b:OPEN_S_BRACKET a:Arguments CLOSE_S_BRACKET                   { $$ = result(make_array(b.line, a.value.tag_tuple)); }        
+      | b:OPEN_BRACKET a:MapsList CLOSE_BRACKET                        { $$ = result(make_record(b.line, a.value.mapping)); }        
+      | t:TAG_OR_EMPTY OPEN a:Arguments CLOSE                          { $$ = result(make_tuple(t.line, t.value.text, 1, a.value.tag_tuple)); }
+      #| t:TAG_OR_EMPTY OPEN_BRACKET a:Arguments CLOSE_BRACKET   { $$ = result(make_block(t.line, t.value.text, 1, a.value.tag_tuple)); }
+      | t:TAG                                                          { $$ = result(make_tag(t.line, t.value.text, 1)); }
+                                                                  
+
+#StaticDeclaration = STATIC v:VarDeclaration EQUALS i:Expr IN e:Value
 
 Arguments = a:ArgList             { $$ = a; }
           | -                     { $$ = result_arg_list(NULL, NULL);}
@@ -138,8 +320,16 @@ Arguments = a:ArgList             { $$ = a; }
 ArgList = e:Expr                       #~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
             COMMA                     # ~{ unexpexted_character_error(&yy->state, yy->__buf, yy->__pos, yy->__buflen);}
             l:ArgList                  ~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
-                                       { $$ = result_arg_list(e.value.tag_tuple, &l);}
+                                       {  $$ = result_arg_list(e.value.tag_tuple, &l);}
         | e:Expr                       { $$ = result_arg_list(e.value.tag_tuple, NULL);}
+
+Mapping = v:VarDeclaration EQUALS e:Expr {$$ = result_mapping(make_mapping(v.line, v.value.declaration, e.value.tag_tuple));}
+
+MapsList =  m:Mapping       #~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
+            COMMA         # ~{ unexpexted_character_error(&yy->state, yy->__buf, yy->__pos, yy->__buflen);}
+            l:MapsList      ~{ error(&yy->state, PARSE_ERROR_MISSING_ARGUMENT, 0, yy->state.last_read_char)} 
+                             { $$ = result_maps_list(m.value.mapping, &l);}
+        | m:Mapping          { $$ = result_maps_list(m.value.mapping, NULL);}
        
 
 String =  q:QUOTES < ( !["] Char )* > QUOTES - {$$ = result(make_string(q.line, yytext)); } #"
@@ -148,22 +338,75 @@ Char =    '\\' [abefnrtv'"\[\]\\]
      |    '\\' [0-7][0-7]?
      |   !'\\' ( EOL | . )
 
-NUMBER          = s:SOME < '-'? - ( [0-9]*'.'[0-9]*| [0-9]+ ) >    -  { $$ = result(make_number(s.line, atof(yytext))); }
-TAG             = s:SOME <[_a-zA-Z] ('.' | [_a-zA-Z0-9])*>         -  { $$ = result_text(s.line, yytext); }
-TAG_OR_EMPTY    = TAG |                                            -    { $$ = result_text(yy->state.current_line, ""); }          
-SOME            = &.                                               -    { $$ = result_line(&yy->state); } #only used to get the line number
-PLUS            = s:SOME '+'                                       -    { $$ = s; } #only used to get the line number
-MINUS           = s:SOME '-'                                       -    { $$ = s; } #only used to get the line number
-TIMES           = s:SOME '*'                                       -    { $$ = s; } #only used to get the line number
-DIVIDE          = s:SOME '/'                                       -    { $$ = s; } #only used to get the line number
-OPEN            = s:SOME '('                                       -    { $$ = s; } #only used to get the line number
-CLOSE           = s:SOME ')'                                       -
-OPEN_BRACKET    = '{'                                       -
-CLOSE_BRACKET   = '}'                                       -
-COMMA           = ','                                       -
-QUOTES          = '"'           - #"
--       = ([ \t] | EOL)*
-EOL     = ('\n' | '\r\n' | '\r')  { yy->state.current_line++; printf("line %d\n", yy->state.current_line);}
+NON_RESERVED = !('function' | 'prototype' | 'external' | 'for' | 'foreach' | 'while' |  'let' | 'datatype' | 'in' )  
+                ~{error(&yy->state, PARSE_ERROR_RESERVED, 0, NULL)}
+DOUBLE_VALUE    = s:SOME < ([0-9]*'.'[0-9]*) ('E' '-'? [0-9]+) ?>             -    { $$ = result(make_double(s.line, strtof(yytext, NULL))); }
+INTEGER         = s:SOME < '0x' ? ([0-9]+) >                                  -    { $$ = result(make_long(s.line, strtol(yytext, NULL, 0))); }
+TAG             = s:SOME NON_RESERVED <[_a-zA-Z] ('.' | [_a-zA-Z0-9])*>       -    { $$ = result_text(s.line, yytext); }
+TAG_OR_EMPTY    = TAG |                                                       -    { $$ = result_text(yy->state.current_line, ""); }          
+SOME            = &.                                                          -    { $$ = result_line(&yy->state); } #only used to get the line number
+PLUS            = s:SOME '+'                                                  -    { $$ = s; } #only used to get the line number
+MINUS           = s:SOME '-'                                                  -    { $$ = s; } #only used to get the line number
+TIMES           = s:SOME '*'                                                  -    { $$ = s; } #only used to get the line number
+DIVIDE          = s:SOME '/'                                                  -    { $$ = s; } #only used to get the line number
+OPEN            = s:SOME '('                                                  -    { $$ = s; } #only used to get the line number
+CLOSE           = s:SOME ')'                                                  -    { $$ = s; } #only used to get the line number
+COLON           = s:SOME ':'                                                  -    { $$ = s; } #only used to get the line number
+ASSIGN          = s:SOME ':='                                                 -    { $$ = s; } #only used to get the line number
+EQUALS          = s:SOME '='                                                  -    { $$ = s; } #only used to get the line number
+OPEN_S_BRACKET  = s:SOME '['                                                  -    { $$ = s; } #only used to get the line number
+CLOSE_S_BRACKET = s:SOME ']'                                                  -    { $$ = s; } #only used to get the line number
+OPEN_BRACKET    = s:SOME '{'                                                  -    { $$ = s; } #only used to get the line number
+CLOSE_BRACKET   = s:SOME '}'                                                  -    { $$ = s; } #only used to get the line number
+INCLUDE         = s:SOME 'include'                                            -    { $$ = s; } #only used to get the line number
+DATATYPE        = s:SOME 'datatype'                                           -    { $$ = s; } #only used to get the line number
+WITH            = s:SOME 'with'                                               -    { $$ = s; } #only used to get the line number
+FUNCTION        = s:SOME 'function'                                           -    { $$ = s; } #only used to get the line number
+PROTOTYPE       = s:SOME 'prototype'                                          -    { $$ = s; } #only used to get the line number
+EXTERNAL        = s:SOME 'external'                                           -    { $$ = s; } #only used to get the line number
+ARROW           = s:SOME '->'                                                 -    { $$ = s; } #only used to get the line number
+BYTE            = s:SOME 'byte'                                               -    { $$ = s; } #only used to get the line number
+INT             = s:SOME 'int'                                                -    { $$ = s; } #only used to get the line number
+LONG            = s:SOME 'long'                                               -    { $$ = s; } #only used to get the line number
+DOUBLE          = s:SOME 'double'                                             -    { $$ = s; } #only used to get the line number
+CHARS           = s:SOME 'chars'                                              -    { $$ = s; } #only used to get the line number
+ARRAY           = s:SOME 'array'                                              -    { $$ = s; } #only used to get the line number
+BOX             = s:SOME 'box'                                                -    { $$ = s; } #only used to get the line number
+UNBOX           = s:SOME 'unbox'                                              -    { $$ = s; } #only used to get the line number
+OF              = s:SOME 'of'                                                 -    { $$ = s; } #only used to get the line number
+DYNAMIC         = s:SOME 'dynamic'                                            -    { $$ = s; } #only used to get the line number
+APPLY           = s:SOME '=>'                                                 -    { $$ = s; } #only used to get the line number
+IN              = s:SOME 'in'                                                 -    { $$ = s; } #only used to get the line number
+LET             = s:SOME 'let'                                                -    { $$ = s; } #only used to get the line number
+FOR             = s:SOME 'for'                                                -    { $$ = s; } #only used to get the line number
+FOREACH         = s:SOME 'foreach'                                            -    { $$ = s; } #only used to get the line number
+FROM            = s:SOME 'from'                                               -    { $$ = s; } #only used to get the line number
+WHILE           = s:SOME 'while'                                              -    { $$ = s; } #only used to get the line number
+IF              = s:SOME 'if'                                                 -    { $$ = s; } #only used to get the line number
+THEN            = s:SOME 'then'                                               -    { $$ = s; } #only used to get the line number
+ELSE            = s:SOME 'else'                                               -    { $$ = s; } #only used to get the line number
+CARDINAL        = s:SOME '#'                                                  -    { $$ = s; } #only used to get the line number
+DOLLAR          = s:SOME '$'                                                  -    { $$ = s; } #only used to get the line number
+NEW             = s:SOME 'new'                                                -    { $$ = s; } #only used to get the line number
+TYPEDEF         = s:SOME 'typedef'                                            -    { $$ = s; } #only used to get the line number
+COMMA           = s:SOME ','                                                  -    { $$ = s; } #only used to get the line number
+AMPERSAND       = s:SOME '&'                                                  -    { $$ = s; } #only used to get the line number
+AND             = s:SOME '&&'                                                 -    { $$ = s; } #only used to get the line number
+OR              = s:SOME '||'                                                 -    { $$ = s; } #only used to get the line number
+LTE             = s:SOME '<='                                                 -    { $$ = s; } #only used to get the line number
+GTE             = s:SOME '>='                                                 -    { $$ = s; } #only used to get the line number
+LT              = s:SOME '<'                                                  -    { $$ = s; } #only used to get the line number
+GT              = s:SOME '>'                                                  -    { $$ = s; } #only used to get the line number
+EQ              = s:SOME '=='                                                 -    { $$ = s; } #only used to get the line number
+NOT             = s:SOME '!'                                                  -    { $$ = s; } #only used to get the line number
+DOT             = s:SOME '.'                                                  -    { $$ = s; } #only used to get the line number
+IS              = s:SOME 'is'                                                 -    { $$ = s; } #only used to get the line number
+STATIC          = s:SOME 'static'                                             -    { $$ = s; } #only used to get the line number
+QUOTES          = s:SOME '"'           - #"
+
+-       = ([ \t] | EOL | COMMENT)*
+COMMENT = '//'(!EOL .) *
+EOL     = ('\n' | '\r\n' | '\r')  { yy->state.current_line++; //printf("line %d\n", yy->state.current_line);}
 EOF     = (&{yy->state.interactive} ';;;' EOL | !.) ~{ unexpexted_character_error(&yy->state, yy->__buf, yy->__pos, yy->__buflen); } 
 %%
 

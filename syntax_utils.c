@@ -13,13 +13,16 @@ void print_error(parse_error_code code, const parse_error *error) {
         case PARSE_ERROR_OK:
             break;
         case PARSE_ERROR_MISSING_OPERAND:
-            PRINT_ERROR(error, "missing operand for operation '%c'\n", get_operator_symbol(error->op));
+            PRINT_ERROR(error, "missing operand for operation '%s'\n", get_operator_symbol(error->op));
             break;
         case PARSE_ERROR_MISSING_ARGUMENT:
             PRINT_ERROR(error, "empty or invalid argument '%s'\n", error->text);
             break;
         case PARSE_ERROR_UNEXPECTED_CHAR:
             PRINT_ERROR(error, "unexpected character '%s'\n", error->text);
+            break; 
+        case PARSE_ERROR_RESERVED:
+            PRINT_ERROR(error, "illegal use of reserved word %s\n", "");
             break;
         case PARSE_ERROR_NEAR:
             PRINT_ERROR(error, "syntax error near '%s'\n", error->text);

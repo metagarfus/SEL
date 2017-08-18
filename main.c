@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "syntax.h"
+#include "compiler.h"
 
 void print_usage() {
     printf ("sel [-i | <filename> ]\n");
@@ -9,7 +10,10 @@ void print_usage() {
 
 void run(parse_output output) {
     if (output.error_code == PARSE_ERROR_OK) {
-        print_tree(output.value.root);
+        print_tree(stdout, output.value.root);
+        /*FILE * file = fopen("output.c", "w");
+        sel_compile(file, output.value.root);
+        fclose(file);*/
         printf("\n");
         release_tagtuple(output.value.root);
     } else {
@@ -34,6 +38,6 @@ int main(int argc, char **argv) {
         run(tagtuple_parse(file));
         fclose(file);
     } else
-          print_usage();
+        print_usage();
     return 0;
 }
