@@ -544,13 +544,16 @@ static void print_mapping(FILE *f, mapping_t *mapping) {
     if(mapping == NULL)
         return;
      print_declaration(f, mapping->variable);
+     fprintf(f, " = ");
      print_tree(f, mapping->value);
 }
 
 static void print_mapping_list(FILE *f, mapping_t *mapping) {
     mapping_t *arg;
-    for (arg = mapping; arg != NULL; arg = arg->next) 
+    for (arg = mapping; arg != NULL; arg = arg->next) {
         print_mapping(f, arg);
+        fprintf(f, ", ");
+    }
 }
 
 static void print_arg_list(FILE *f, tag_tuple *arguments, const char *open, const char *close, const char *separator) {
