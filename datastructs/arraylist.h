@@ -1,4 +1,6 @@
-/* This file was automatically generated.  Do not edit! */
+#ifndef DATA_STRUCT_ARRAYLIST_H
+#define DATA_STRUCT_ARRAYLIST_H
+
 typedef struct arraylist arraylist;
 void arraylist_destroy(arraylist *l);
 void arraylist_splice(arraylist *l,arraylist *source,unsigned int index);
@@ -24,3 +26,5 @@ struct arraylist {
 	void** body; // Pointer to allocated memory for items (of size capacity * sizeof(void*))
 };
 #define INTERFACE 0
+
+#endif /*DATA_STRUCT_ARRAYLIST_H*/

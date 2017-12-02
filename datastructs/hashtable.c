@@ -16,7 +16,7 @@
  */
 #if INTERFACE
 struct hashtable_entry {
-	char* key;
+	const char* key;
 	void* value;
 };
 
@@ -33,7 +33,7 @@ struct hashtable {
  * Compute the hash value for the given string.
  * Implements the djb k=33 hash function.
  */
-unsigned long hashtable_hash(char* str)
+unsigned long hashtable_hash(const char* str)
 {
 	unsigned long hash = 5381;
 	int c;
@@ -45,7 +45,7 @@ unsigned long hashtable_hash(char* str)
 /**
  * Find an available slot for the given key, using linear probing.
  */
-unsigned int hashtable_find_slot(hashtable* t, char* key)
+unsigned int hashtable_find_slot(hashtable* t, const char* key)
 {
 	int index = hashtable_hash(key) % t->capacity;
 	while (t->body[index].key != NULL && strcmp(t->body[index].key, key) != 0) {
@@ -57,7 +57,7 @@ unsigned int hashtable_find_slot(hashtable* t, char* key)
 /**
  * Return the item associated with the given key, or NULL if not found.
  */
-void* hashtable_get(hashtable* t, char* key)
+void* hashtable_get(hashtable* t, const char* key)
 {
 	int index = hashtable_find_slot(t, key);
 	if (t->body[index].key != NULL) {
@@ -70,7 +70,7 @@ void* hashtable_get(hashtable* t, char* key)
 /**
  * Assign a value to the given key in the table.
  */
-void hashtable_set(hashtable* t, char* key, void* value)
+void hashtable_set(hashtable* t, const char* key, void* value)
 {
 	int index = hashtable_find_slot(t, key);
 	if (t->body[index].key != NULL) {
@@ -92,7 +92,7 @@ void hashtable_set(hashtable* t, char* key, void* value)
 /**
  * Remove a key from the table
  */
-void hashtable_remove(hashtable* t, char* key)
+void hashtable_remove(hashtable* t, const char* key)
 {
 	int index = hashtable_find_slot(t, key);
 	if (t->body[index].key != NULL) {

@@ -1,0 +1,25 @@
+type PrinterType = union
+{
+	EPSON int
+	| LEXMARK int
+	| CANON int
+}
+
+type Car = {
+     doors: int,
+     brand: chars
+}
+
+type Vehicle = union
+{
+	Car Car
+}
+
+function f():int = (
+	 let car = Vehicle::Car {{doors = 5, brand="fiat"}} in
+	 let printerType = PrinterType::EPSON{2} in
+		case printerType of (
+		     EPSON x in x
+		     | otherwise in 1 	     
+		)
+)

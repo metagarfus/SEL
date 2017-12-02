@@ -9,7 +9,7 @@
 static tag_tuple *make(int line){
     tag_tuple * const tuple = (tag_tuple*) malloc(sizeof(tag_tuple));
     memset(tuple, 0, sizeof(tag_tuple));
-    tuple->line_number = line + 1;
+    tuple->line_number = line;
     return tuple;
 }
 
@@ -234,12 +234,13 @@ tag_tuple* make_box_of(int line, tag_tuple *size, char *counter_name, int is_nam
    return tuple;
 }
 
-tag_tuple* make_function(int line, declaration_t *declaration, declaration_t *arguments, tag_tuple *body) {
+tag_tuple* make_function(int line, char *name, int is_name_owner, declaration_t *arguments, value_data_type_t *return_type, tag_tuple *body) {
     //printf("make_function\n");
     tag_tuple * const tuple = make(line);
     tuple->type = TAG_TYPE_FUNCTION;
-    tuple->value.function.declaration = declaration;
+    tuple->value.function.name = EMPTY_IF_NULL(name, !is_name_owner);
     tuple->value.function.arguments = arguments;
+    tuple->value.function.return_type = return_type;
     tuple->value.function.body = body;
     return tuple;
 }
@@ -302,23 +303,57 @@ tag_tuple* make_static(int line, declaration_t *declaration, tag_tuple *init, ta
 static access_path_t *make_access_path(int line){
     access_path_t * const path = (access_path_t*) malloc(sizeof(access_path_t));
     memset(path, 0, sizeof(access_path_t));
-    path->line_number = line + 1;
+    path->line_number = line;
+    return path;
+}
+
+static access_path_t  *make_indexed_access_path(int line, access_type type, tag_tuple *index) {
+    access_path_t * const path = make_access_path(line);
+    path->type = type;
+    path->value.index = index;
+    return path;
+}
+
+static access_path_t  *make_named_access_path(int line, access_type type, char *name, int is_name_owner) {
+    access_path_t * const path = make_access_path(line);
+    path->type = type;
+    path->value.name = EMPTY_IF_NULL(name, !is_name_owner);
     return path;
 }
 
 access_path_t  *make_array_access_path(int line, tag_tuple *index) {
     //printf("make_array_access_path \n");
-    access_path_t * const path = make_access_path(line);
-    path->type = ACCESS_ARRAY;
-    path->value.index = index;
+    access_path_t * const path = make_indexed_access_path(line, ACCESS_ARRAY, index);
+    return path;
+}
+
+access_path_t  *make_array_deref_access_path(int line, tag_tuple *index) {
+    //printf("make_array_deref_access_path \n");
+    access_path_t * const path = make_indexed_access_path(line, ACCESS_DEREF_ARRAY, index);
+    return path;
+}
+
+access_path_t  *make_array_ref_access_path(int line, tag_tuple *index) {
+    //printf("make_array_ref_access_path \n");
+    access_path_t * const path = make_indexed_access_path(line, ACCESS_REF_ARRAY, index);
     return path;
 }
 
 access_path_t  *make_record_access_path(int line, char *name, int is_name_owner) {
     //printf("make_record_access_path \n");
-    access_path_t * const path = make_access_path(line);
-    path->type = ACCESS_RECORD;
-    path->value.name = EMPTY_IF_NULL(name, !is_name_owner);
+    access_path_t * const path = make_named_access_path(line, ACCESS_RECORD, name, is_name_owner);
+    return path;
+}
+
+access_path_t  *make_record_deref_access_path(int line, char *name, int is_name_owner) {
+    //printf("make_record_deref_access_path \n");
+    access_path_t * const path = make_named_access_path(line, ACCESS_DEREF_RECORD, name, is_name_owner);
+    return path;
+}
+
+access_path_t  *make_record_ref_access_path(int line, char *name, int is_name_owner) {
+    //printf("make_record_ref_access_path \n");
+    access_path_t * const path = make_named_access_path(line, ACCESS_REF_RECORD, name, is_name_owner);
     return path;
 }
 
@@ -326,7 +361,7 @@ mapping_t* make_mapping(int line, declaration_t *variable, tag_tuple *value) {
     //printf("make_mapping \n");
     mapping_t * const mapping = (mapping_t*) malloc(sizeof(mapping_t));
     memset(mapping, 0, sizeof(mapping_t));
-    mapping->line_number = line + 1;
+    mapping->line_number = line;
     mapping->variable = variable;
     mapping->value = value;
     return mapping;
@@ -336,7 +371,7 @@ declaration_t* make_declaration(int line, char *name, int is_name_owner, value_d
     //printf("make_declaration \n");
     declaration_t * const declaration = (declaration_t*) malloc(sizeof(declaration_t));
     memset(declaration, 0, sizeof(declaration_t));
-    declaration->line_number = line + 1;
+    declaration->line_number = line;
     declaration->name = EMPTY_IF_NULL(name, !is_name_owner);
     declaration->type = data_type;
     return declaration;
@@ -344,7 +379,7 @@ declaration_t* make_declaration(int line, char *name, int is_name_owner, value_d
 static value_data_type_t *make_type(int line) {
     value_data_type_t * const type = (value_data_type_t*) malloc(sizeof(value_data_type_t));
     memset(type, 0, sizeof(value_data_type_t));
-    type->line_number = line + 1;
+    type->line_number = line;
     return type;
 }
 
@@ -360,6 +395,13 @@ value_data_type_t *make_chars_type(int line) {
     //printf("make_chars_type \n");
     value_data_type_t * const type = make_type(line);
     type->kind = DATA_KIND_CHARS;
+    return type;
+}
+
+value_data_type_t *make_boolean_type(int line) {
+    //printf("make_boolean_type \n");
+    value_data_type_t * const type = make_type(line);
+    type->kind = DATA_KIND_BOOLEAN;
     return type;
 }
 
@@ -451,8 +493,22 @@ value_data_type_t *make_arrow_type(int line, value_data_type_t *left, value_data
     //printf("make_arrow_type \n");
     value_data_type_t * const type = make_type(line);
     type->kind = DATA_KIND_ARROW;
-    type->type.arrow.to = left;
-    type->type.arrow.from = right;
+    type->type.arrow.from = left;
+    type->type.arrow.to = right;
+    return type;
+}
+
+value_data_type_t *make_unit_type(int line) {
+    //printf("make_unit_type \n");
+    value_data_type_t * const type = make_type(line);
+    type->kind = DATA_KIND_UNIT;
+    return type;
+}
+
+value_data_type_t *make_null_type(int line) {
+    //printf("make_null_type \n");
+    value_data_type_t * const type = make_type(line);
+    type->kind = DATA_KIND_NULL;
     return type;
 }
 
@@ -566,15 +622,30 @@ static void print_arg_list(FILE *f, tag_tuple *arguments, const char *open, cons
      fprintf(f, "%s", close);
 }
 
+void print_type(FILE *f, value_data_type_t *data_type);
+
+static void print_type_list(FILE *f, value_data_type_t *arguments, const char *open, const char *close, const char *separator) {
+    fprintf(f, "%s", open);
+    value_data_type_t *arg;
+    for (arg = arguments; arg != NULL; arg = arg->next) { 
+        print_type(f, arg);
+        fprintf(f, "%s", separator);
+    }
+     fprintf(f, "%s", close);
+}
+
 void print_type(FILE *f, value_data_type_t *data_type) {
     if (data_type == NULL)
         return;
     switch (data_type->kind) {
         case DATA_KIND_ARROW:
             fprintf(f, "(");
-            print_type(f, data_type->type.arrow.to);
+            if (data_type->type.arrow.from != NULL && data_type->type.arrow.from->next == NULL)
+                print_type(f, data_type->type.arrow.from);
+            else            
+                print_type_list(f, data_type->type.arrow.from, "(", ")", ", ");
             fprintf(f, " -> ");
-            print_type(f, data_type->type.arrow.from);
+            print_type(f, data_type->type.arrow.to);
             fprintf(f, ")");
             break;
         case DATA_KIND_ARRAY:
@@ -630,6 +701,15 @@ void print_type(FILE *f, value_data_type_t *data_type) {
         case DATA_KIND_DYNAMIC:
             fprintf(f, "dynamic");
             break;
+        case DATA_KIND_UNIT:
+            fprintf(f, "unit");
+            break;
+        case DATA_KIND_NULL:
+            fprintf(f, "null");
+            break;
+        case DATA_KIND_BOOLEAN:
+            fprintf(f, "boolean");
+            break;
        }
 }
 
@@ -644,9 +724,11 @@ void print_tree(FILE *f, tag_tuple* root) {
             }
             break;
         case TAG_TYPE_FUNCTION:
-            fprintf(f, "(function ");
-            print_declaration(f, root->value.function.declaration);
-            print_decl_list(f, root->value.function.arguments, " (", ")\n");
+            fprintf(f, "(function %s ", root->value.function.name);
+            print_decl_list(f, root->value.function.arguments, " (", ") ");
+            fprintf(f, " : ");
+            print_type(f, root->value.function.return_type);
+            fprintf(f, "\n");
             print_tree(f, root->value.function.body);
             fprintf(f, ")");
             break;
@@ -877,11 +959,9 @@ void release_tagtuple(tag_tuple* root) {
 }
 
 int arg_length(const tag_tuple *root) {
-    if (root->type != TAG_TYPE_TUPLE)
-        return 0;
-    tag_tuple *arg;
     int i;
-    for (arg = root->value.tuple.arguments, i = 0; arg != NULL; arg = arg->next, i++) 
+    const tag_tuple *arg;
+    for (arg = root, i = 0; arg != NULL; arg = arg->next, i++) 
         ;
     return i;
 }

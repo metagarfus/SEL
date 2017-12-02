@@ -3,8 +3,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
-
-#define NUMBER_SCALE_MULTIPLIER 100000000
+#include "datastructs/hashtable.h"
 
 //struct tag_tuple;
 
@@ -12,8 +11,10 @@ typedef enum {
     DATA_KIND_ARROW,
     DATA_KIND_ARRAY,
     DATA_KIND_RECORD,
+    DATA_KIND_UNION,
     DATA_KIND_POINTER,
     DATA_KIND_ARRAY_POINTER,
+    DATA_KIND_BOOLEAN,
     DATA_KIND_BYTE,
     DATA_KIND_INT,
     DATA_KIND_LONG,
@@ -23,16 +24,19 @@ typedef enum {
     DATA_KIND_BOX,
     DATA_KIND_ARRAY_BOX,
     DATA_KIND_NAMED,
+    DATA_KIND_UNIT,
+    DATA_KIND_NULL,
 } data_kind;
 
 typedef struct value_data_type {
     data_kind kind;
     uint32_t line_number;
-    struct value_data_type *next;
+    struct value_data_type *next, *shadows;
+    int is_forward_declaration;
     union {
         struct {
-            struct value_data_type *to;
             struct value_data_type *from;
+            struct value_data_type *to;
         } arrow;
         
         struct {
@@ -40,10 +44,14 @@ typedef struct value_data_type {
             struct tag_tuple *size;
         } array;
         
-         struct {
+        struct {
             struct declaration *fields;
         } record;
         
+        struct {
+            struct declaration *options;
+        } union;
+
         struct {
             struct value_data_type *target;
         } pointer;
@@ -110,6 +118,10 @@ typedef struct declaration {
     value_data_type_t *type;
 } declaration_t;
 
+typedef struct free_variables {
+    declaration_t *variables;
+} free_variables_t;
+
 typedef struct mapping {
     uint32_t line_number;
     struct mapping *next;
@@ -117,9 +129,21 @@ typedef struct mapping {
     struct tag_tuple *value;
 } mapping_t;
 
+typedef struct case_option {
+    uint32_t line_number;
+    struct case_option *next;
+    char *union_tag;
+    declaration_t *variable;
+    struct tag_tuple *value;
+} case_option_t;
+
 typedef enum {
     ACCESS_ARRAY,
-    ACCESS_RECORD
+    ACCESS_DEREF_ARRAY,    
+    ACCESS_REF_ARRAY,
+    ACCESS_RECORD,
+    ACCESS_DEREF_RECORD,    
+    ACCESS_REF_RECORD
 } access_type;
 
 typedef struct access_path {
@@ -162,9 +186,10 @@ typedef enum {
     TAG_TYPE_IF,
     TAG_TYPE_STATIC,
     TAG_TYPE_TYPEDEF,
+    TAG_TYPE_UNION,
+    TAG_TYPE_UNION_RECORD,
+    TAG_TYPE_CASE,
 } tag_type;
-
-#define IS_NORMAL_FORM(X) ( (X) != TAG_TYPE_EXPR  && (X) != TAG_TYPE_TUPLE )
 
 typedef struct tag_tuple {
     tag_type type;
@@ -178,12 +203,16 @@ typedef struct tag_tuple {
         } definitions;
 
         struct {
-            declaration_t *declaration;
+            hashtable *local_types;
+            char *name;
+            value_data_type_t *return_type;
             declaration_t *arguments;  
             struct tag_tuple *body;
         } function;
 
         struct {
+            hashtable *local_types;
+            free_variables_t free_locals;
             declaration_t *arguments;  
             struct tag_tuple *body;
         } lambda;
@@ -245,7 +274,7 @@ typedef struct tag_tuple {
         
         struct {
             struct tag_tuple *source;
-             access_path_t *path;
+            access_path_t *path;
         } access;
 
         struct {
@@ -279,6 +308,10 @@ typedef struct tag_tuple {
             value_data_type_t *data_type;
             struct tag_tuple *arg_list;
         } new_datatype;
+
+        struct {
+            mapping_t *arguments;  
+        } record;
 
         struct {
             mapping_t *arguments;  
@@ -328,11 +361,14 @@ mapping_t* make_mapping(int line, declaration_t *variable, tag_tuple *value);
 declaration_t* make_declaration(int line, char *name, int is_name_owner, value_data_type_t *data_type);
 value_data_type_t *make_named_type(int line, char *name, int is_name_owner);
 value_data_type_t *make_chars_type(int line);
+value_data_type_t *make_boolean_type(int line);
 value_data_type_t *make_byte_type(int line);
 value_data_type_t *make_int_type(int line);
 value_data_type_t *make_long_type(int line);
 value_data_type_t *make_double_type(int line);
 value_data_type_t *make_dynamic_type(int line);
+value_data_type_t *make_unit_type(int line);
+value_data_type_t *make_null_type(int line);
 value_data_type_t *make_box_type(int line, value_data_type_t *data_type);
 value_data_type_t *make_array_box_type(int line, value_data_type_t *data_type);
 value_data_type_t *make_array_pointer_type(int line, value_data_type_t *data_type);
@@ -341,9 +377,13 @@ value_data_type_t *make_array_type(int line, value_data_type_t *data_type, tag_t
 value_data_type_t *make_pointer_type(int line, value_data_type_t *data_type);
 value_data_type_t *make_arrow_type(int line, value_data_type_t *left, value_data_type_t *right);
 access_path_t  *make_array_access_path(int line, tag_tuple *index);
+access_path_t  *make_array_deref_access_path(int line, tag_tuple *index);
+access_path_t  *make_array_ref_access_path(int line, tag_tuple *index);
 access_path_t  *make_record_access_path(int line, char *name, int is_name_owner);
+access_path_t  *make_record_deref_access_path(int line, char *name, int is_name_owner);
+access_path_t  *make_record_ref_access_path(int line, char *name, int is_name_owner);
 tag_tuple* make_definitions(int line, tag_tuple *arg_list);
-tag_tuple* make_function(int line, declaration_t *declaration, declaration_t *arguments, tag_tuple *body);
+tag_tuple* make_function(int line, char *name, int is_name_owner, declaration_t *arguments, value_data_type_t *return_type, tag_tuple *body);
 tag_tuple* make_datatype(int line, char *name, int is_name_owner, value_data_type_t *type, declaration_t *arguments, tag_tuple *body, tag_tuple *with);
 tag_tuple* make_typedef(int line, char *name, int is_name_owner, value_data_type_t *type);
 tag_tuple* make_include(int line, tag_tuple *subject);

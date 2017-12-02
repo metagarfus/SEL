@@ -1,0 +1,36 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "SEL",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.sel",
+				"match": "\\b(if|while|for|foreach|let|return)\\b"
+			},{
+				"name": "keyword.control.sel",
+				"match": "\\b(if|while|for|foreach|let|return)\\b"
+			}
+		]
+		},
+		"strings": {
+			"name": "string.quoted.double.sel",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.sel",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.sel"
+}

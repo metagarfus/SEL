@@ -1,0 +1,2989 @@
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+  let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)
+function main(x : int) : int =
+(
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+  0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x,
+ 0x01, x + 5,
+  let x = 45 in x,
+ let y = 45 in let r = &45 in       r := y,
+  for x = 12, x < 20, x + 1 in x
+)

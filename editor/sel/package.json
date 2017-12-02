@@ -1,0 +1,26 @@
+{
+    "name": "sel",
+    "displayName": "SEL",
+    "description": "SEL Sybtax Highlight",
+    "version": "0.0.1",
+    "publisher": "metagarfus",
+    "engines": {
+        "vscode": "^1.15.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "sel",
+            "aliases": ["SEL", "sel"],
+            "extensions": [".sel"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "sel",
+            "scopeName": "source.sel",
+            "path": "./syntaxes/sel.tmLanguage.json"
+        }]
+    }
+}

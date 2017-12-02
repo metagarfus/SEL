@@ -1,0 +1,16 @@
+
+function f(x:long, z : int -> int) : long = x
+
+function g(x:int) : int = x
+
+prototype main(x : int->int, y: *?, z:int) : int
+
+function main(x : int->int, y: *?, z:int) : int = ( 
+	 //{x:int => x}, 
+	 {d:chars => x(z)},
+	 f(1, x),
+	 g(z),
+	 z,
+	g(z),
+	1
+) 

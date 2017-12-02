@@ -3,6 +3,7 @@
 #include <string.h>
 #include "syntax.h"
 #include "compiler.h"
+#include "type_checker.h"
 
 void print_usage() {
     printf ("sel [-i | <filename> ]\n");
@@ -10,6 +11,7 @@ void print_usage() {
 
 void run(parse_output output) {
     if (output.error_code == PARSE_ERROR_OK) {
+        type_check(output.value.root);
         print_tree(stdout, output.value.root);
         /*FILE * file = fopen("output.c", "w");
         sel_compile(file, output.value.root);

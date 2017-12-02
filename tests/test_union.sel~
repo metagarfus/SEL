@@ -1,0 +1,6 @@
+type PrinterType = union
+{
+	EPSON int
+	| LEXMARK int
+	
+}

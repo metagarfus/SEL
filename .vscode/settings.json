@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.leg": "peg",
+        "*.lex": "lex",
+        "stdlib.h": "c",
+        "syntax.h": "c",
+        "tagtuple.h": "c",
+        "utils.h": "c",
+        "string.h": "c",
+        "errors.h": "c",
+        "type_checker.h": "c"
+    }
+}
