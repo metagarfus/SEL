@@ -220,8 +220,8 @@ int type_equals(const value_data_type_t *data_type, const value_data_type_t *oth
 }
 
 static int type_numeric_order() {
-ddw
-CONTINUE HERE
+//ddw
+//CONTINUE HERE
 }
 
 const value_data_type_t * get_named_type(const char *name, int accept_datatypes) {

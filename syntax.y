@@ -144,14 +144,14 @@ static void unexpexted_character_error(state *state, char *buf, int pos, int len
 %type <declaration> VarDeclarationList
 %type <declaration> VarDeclarations
 
-%type <union_declaration> UnionDeclaration
-%type <union_declaration> UnionDeclarationList
+%type <declaration> UnionDeclaration
+%type <declaration> UnionDeclarationList
 
 %type <mapping> Mapping
 %type <mapping> MapsList
 
-%type <case> Case
-%type <case> CaseList
+%type <case_option> Case
+%type <case_option> CaseList
 
 %token   
 PLUS            
@@ -234,7 +234,7 @@ OTHERWISE
         mapping_t *mapping;
         declaration_t *declaration;
         union_declaration_t *union_declaration;
-        case_t *case; 
+        case_option_t *case_option;
         char *text;
         access_path_t *access_path;
         double double_value;

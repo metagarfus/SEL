@@ -1,4 +1,4 @@
-Terminals which are not used
+Terminals unused in grammar
 
    EXTERNAL
    DOLLAR
@@ -60,7 +60,7 @@ Grammar
    39            | PointerType COMMA PointerType
 
    40 VarDeclarations: VarDeclarationList
-   41                | /* empty */
+   41                | %empty
 
    42 VarDeclarationList: VarDeclaration COMMA VarDeclarationList
    43                   | VarDeclaration
@@ -137,10 +137,10 @@ Grammar
   105      | TAG
 
   106 TAG_OR_EMPTY: TAG
-  107             | /* empty */
+  107             | %empty
 
   108 Arguments: ArgList
-  109          | /* empty */
+  109          | %empty
 
   110 ArgList: Expr COMMA ArgList
   111        | Expr
@@ -265,8 +265,8 @@ PointerType (82)
 ArrayType (83)
     on left: 23 24, on right: 18 21 22
 SimpleType (84)
-    on left: 25 26 27 28 29 30 31 32 33 34 35 36 37,
-    on right: 19 20 23 24
+    on left: 25 26 27 28 29 30 31 32 33 34 35 36 37, on right: 19 20
+    23 24
 ArgTypeList (85)
     on left: 38 39, on right: 15 38
 VarDeclarations (86)
@@ -317,7 +317,7 @@ STRING_EXPR (106)
     on left: 122, on right: 5 93
 
 
-state 0
+State 0
 
     0 $accept: . Stmt $end
 
@@ -334,7 +334,7 @@ state 0
     Function     go to state 10
 
 
-state 1
+State 1
 
     5 Definition: INCLUDE . STRING_EXPR
 
@@ -343,7 +343,7 @@ state 1
     STRING_EXPR  go to state 12
 
 
-state 2
+State 2
 
     9 Definition: DATATYPE . ArrowType AS TAG OPEN VarDeclarations CLOSE Expr WITH OPEN FunctionList CLOSE
 
@@ -368,21 +368,21 @@ state 2
     SimpleType   go to state 30
 
 
-state 3
+State 3
 
    10 Function: FUNCTION . TAG OPEN VarDeclarations CLOSE COLON ArrowType EQUALS Expr
 
     TAG  shift, and go to state 31
 
 
-state 4
+State 4
 
    11 Function: PROTOTYPE . TAG OPEN VarDeclarations CLOSE COLON ArrowType
 
     TAG  shift, and go to state 32
 
 
-state 5
+State 5
 
     6 Definition: TYPEDEF . TAG EQUALS ArrowType
     7           | TYPEDEF . TAG
@@ -390,7 +390,7 @@ state 5
     TAG  shift, and go to state 33
 
 
-state 6
+State 6
 
     8 Definition: STATIC . VarDeclaration EQUALS Expr
 
@@ -399,21 +399,21 @@ state 6
     VarDeclaration  go to state 35
 
 
-state 7
+State 7
 
     0 $accept: Stmt . $end
 
     $end  shift, and go to state 36
 
 
-state 8
+State 8
 
     1 Stmt: Definitions .
 
     $default  reduce using rule 1 (Stmt)
 
 
-state 9
+State 9
 
     2 Definitions: Definition . Definitions
     3            | Definition .
@@ -432,35 +432,35 @@ state 9
     Function     go to state 10
 
 
-state 10
+State 10
 
     4 Definition: Function .
 
     $default  reduce using rule 4 (Definition)
 
 
-state 11
+State 11
 
   122 STRING_EXPR: STRING .
 
     $default  reduce using rule 122 (STRING_EXPR)
 
 
-state 12
+State 12
 
     5 Definition: INCLUDE STRING_EXPR .
 
     $default  reduce using rule 5 (Definition)
 
 
-state 13
+State 13
 
    36 SimpleType: TAG .
 
     $default  reduce using rule 36 (SimpleType)
 
 
-state 14
+State 14
 
    18 PointerType: TIMES . ArrayType
    19            | TIMES . SimpleType OPEN_S_BRACKET CLOSE_S_BRACKET
@@ -484,7 +484,7 @@ state 14
     SimpleType  go to state 42
 
 
-state 15
+State 15
 
    15 ArrowType: OPEN . ArgTypeList CLOSE ARROW ArrowType
    16          | OPEN . CLOSE ARROW ArrowType
@@ -513,7 +513,7 @@ state 15
     ArgTypeList  go to state 46
 
 
-state 16
+State 16
 
    30 SimpleType: OPEN_BRACKET . VarDeclarationList CLOSE_BRACKET
 
@@ -523,49 +523,49 @@ state 16
     VarDeclaration      go to state 48
 
 
-state 17
+State 17
 
    25 SimpleType: BYTE .
 
     $default  reduce using rule 25 (SimpleType)
 
 
-state 18
+State 18
 
    26 SimpleType: INT .
 
     $default  reduce using rule 26 (SimpleType)
 
 
-state 19
+State 19
 
    27 SimpleType: LONG .
 
     $default  reduce using rule 27 (SimpleType)
 
 
-state 20
+State 20
 
    28 SimpleType: DOUBLE .
 
     $default  reduce using rule 28 (SimpleType)
 
 
-state 21
+State 21
 
    35 SimpleType: CHARS .
 
     $default  reduce using rule 35 (SimpleType)
 
 
-state 22
+State 22
 
    29 SimpleType: BOOLEAN .
 
     $default  reduce using rule 29 (SimpleType)
 
 
-state 23
+State 23
 
    20 PointerType: BOX . SimpleType OPEN_S_BRACKET CLOSE_S_BRACKET
    21            | BOX . ArrayType
@@ -588,35 +588,35 @@ state 23
     SimpleType  go to state 50
 
 
-state 24
+State 24
 
    34 SimpleType: DYNAMIC .
 
     $default  reduce using rule 34 (SimpleType)
 
 
-state 25
+State 25
 
    33 SimpleType: QUESTION_MARK . QUESTION_MARK
 
     QUESTION_MARK  shift, and go to state 51
 
 
-state 26
+State 26
 
    31 SimpleType: UNION . OPEN_BRACKET UnionDeclarationList CLOSE_BRACKET
 
     OPEN_BRACKET  shift, and go to state 52
 
 
-state 27
+State 27
 
     9 Definition: DATATYPE ArrowType . AS TAG OPEN VarDeclarations CLOSE Expr WITH OPEN FunctionList CLOSE
 
     AS  shift, and go to state 53
 
 
-state 28
+State 28
 
    14 ArrowType: PointerType . ARROW ArrowType
    17          | PointerType .
@@ -626,14 +626,14 @@ state 28
     $default  reduce using rule 17 (ArrowType)
 
 
-state 29
+State 29
 
    22 PointerType: ArrayType .
 
     $default  reduce using rule 22 (PointerType)
 
 
-state 30
+State 30
 
    23 ArrayType: SimpleType . OPEN_S_BRACKET INTEGER_EXPR CLOSE_S_BRACKET
    24          | SimpleType .
@@ -643,21 +643,21 @@ state 30
     $default  reduce using rule 24 (ArrayType)
 
 
-state 31
+State 31
 
    10 Function: FUNCTION TAG . OPEN VarDeclarations CLOSE COLON ArrowType EQUALS Expr
 
     OPEN  shift, and go to state 56
 
 
-state 32
+State 32
 
    11 Function: PROTOTYPE TAG . OPEN VarDeclarations CLOSE COLON ArrowType
 
     OPEN  shift, and go to state 57
 
 
-state 33
+State 33
 
     6 Definition: TYPEDEF TAG . EQUALS ArrowType
     7           | TYPEDEF TAG .
@@ -667,7 +667,7 @@ state 33
     $default  reduce using rule 7 (Definition)
 
 
-state 34
+State 34
 
    44 VarDeclaration: TAG . COLON ArrowType
    45               | TAG .
@@ -677,35 +677,35 @@ state 34
     $default  reduce using rule 45 (VarDeclaration)
 
 
-state 35
+State 35
 
     8 Definition: STATIC VarDeclaration . EQUALS Expr
 
     EQUALS  shift, and go to state 60
 
 
-state 36
+State 36
 
     0 $accept: Stmt $end .
 
     $default  accept
 
 
-state 37
+State 37
 
     2 Definitions: Definition Definitions .
 
     $default  reduce using rule 2 (Definitions)
 
 
-state 38
+State 38
 
    32 SimpleType: TIMES . QUESTION_MARK
 
     QUESTION_MARK  shift, and go to state 61
 
 
-state 39
+State 39
 
    37 SimpleType: OPEN . ArrowType CLOSE
 
@@ -730,7 +730,7 @@ state 39
     SimpleType   go to state 30
 
 
-state 40
+State 40
 
    32 SimpleType: TIMES QUESTION_MARK .
    33           | QUESTION_MARK . QUESTION_MARK
@@ -740,14 +740,14 @@ state 40
     $default  reduce using rule 32 (SimpleType)
 
 
-state 41
+State 41
 
    18 PointerType: TIMES ArrayType .
 
     $default  reduce using rule 18 (PointerType)
 
 
-state 42
+State 42
 
    19 PointerType: TIMES SimpleType . OPEN_S_BRACKET CLOSE_S_BRACKET
    23 ArrayType: SimpleType . OPEN_S_BRACKET INTEGER_EXPR CLOSE_S_BRACKET
@@ -758,21 +758,21 @@ state 42
     $default  reduce using rule 24 (ArrayType)
 
 
-state 43
+State 43
 
    16 ArrowType: OPEN CLOSE . ARROW ArrowType
 
     ARROW  shift, and go to state 63
 
 
-state 44
+State 44
 
    37 SimpleType: OPEN ArrowType . CLOSE
 
     CLOSE  shift, and go to state 64
 
 
-state 45
+State 45
 
    14 ArrowType: PointerType . ARROW ArrowType
    17          | PointerType .
@@ -785,21 +785,21 @@ state 45
     $default  reduce using rule 17 (ArrowType)
 
 
-state 46
+State 46
 
    15 ArrowType: OPEN ArgTypeList . CLOSE ARROW ArrowType
 
     CLOSE  shift, and go to state 66
 
 
-state 47
+State 47
 
    30 SimpleType: OPEN_BRACKET VarDeclarationList . CLOSE_BRACKET
 
     CLOSE_BRACKET  shift, and go to state 67
 
 
-state 48
+State 48
 
    42 VarDeclarationList: VarDeclaration . COMMA VarDeclarationList
    43                   | VarDeclaration .
@@ -809,14 +809,14 @@ state 48
     $default  reduce using rule 43 (VarDeclarationList)
 
 
-state 49
+State 49
 
    21 PointerType: BOX ArrayType .
 
     $default  reduce using rule 21 (PointerType)
 
 
-state 50
+State 50
 
    20 PointerType: BOX SimpleType . OPEN_S_BRACKET CLOSE_S_BRACKET
    23 ArrayType: SimpleType . OPEN_S_BRACKET INTEGER_EXPR CLOSE_S_BRACKET
@@ -827,14 +827,14 @@ state 50
     $default  reduce using rule 24 (ArrayType)
 
 
-state 51
+State 51
 
    33 SimpleType: QUESTION_MARK QUESTION_MARK .
 
     $default  reduce using rule 33 (SimpleType)
 
 
-state 52
+State 52
 
    31 SimpleType: UNION OPEN_BRACKET . UnionDeclarationList CLOSE_BRACKET
 
@@ -844,14 +844,14 @@ state 52
     UnionDeclaration      go to state 72
 
 
-state 53
+State 53
 
     9 Definition: DATATYPE ArrowType AS . TAG OPEN VarDeclarations CLOSE Expr WITH OPEN FunctionList CLOSE
 
     TAG  shift, and go to state 73
 
 
-state 54
+State 54
 
    14 ArrowType: PointerType ARROW . ArrowType
 
@@ -876,7 +876,7 @@ state 54
     SimpleType   go to state 30
 
 
-state 55
+State 55
 
    23 ArrayType: SimpleType OPEN_S_BRACKET . INTEGER_EXPR CLOSE_S_BRACKET
 
@@ -885,7 +885,7 @@ state 55
     INTEGER_EXPR  go to state 76
 
 
-state 56
+State 56
 
    10 Function: FUNCTION TAG OPEN . VarDeclarations CLOSE COLON ArrowType EQUALS Expr
 
@@ -898,7 +898,7 @@ state 56
     VarDeclaration      go to state 48
 
 
-state 57
+State 57
 
    11 Function: PROTOTYPE TAG OPEN . VarDeclarations CLOSE COLON ArrowType
 
@@ -911,7 +911,7 @@ state 57
     VarDeclaration      go to state 48
 
 
-state 58
+State 58
 
     6 Definition: TYPEDEF TAG EQUALS . ArrowType
 
@@ -936,7 +936,7 @@ state 58
     SimpleType   go to state 30
 
 
-state 59
+State 59
 
    44 VarDeclaration: TAG COLON . ArrowType
 
@@ -961,7 +961,7 @@ state 59
     SimpleType   go to state 30
 
 
-state 60
+State 60
 
     8 Definition: STATIC VarDeclaration EQUALS . Expr
 
@@ -1001,14 +1001,14 @@ state 60
     STRING_EXPR   go to state 110
 
 
-state 61
+State 61
 
    32 SimpleType: TIMES QUESTION_MARK .
 
     $default  reduce using rule 32 (SimpleType)
 
 
-state 62
+State 62
 
    19 PointerType: TIMES SimpleType OPEN_S_BRACKET . CLOSE_S_BRACKET
    23 ArrayType: SimpleType OPEN_S_BRACKET . INTEGER_EXPR CLOSE_S_BRACKET
@@ -1019,7 +1019,7 @@ state 62
     INTEGER_EXPR  go to state 76
 
 
-state 63
+State 63
 
    16 ArrowType: OPEN CLOSE ARROW . ArrowType
 
@@ -1044,14 +1044,14 @@ state 63
     SimpleType   go to state 30
 
 
-state 64
+State 64
 
    37 SimpleType: OPEN ArrowType CLOSE .
 
     $default  reduce using rule 37 (SimpleType)
 
 
-state 65
+State 65
 
    38 ArgTypeList: PointerType COMMA . ArgTypeList
    39            | PointerType COMMA . PointerType
@@ -1077,21 +1077,21 @@ state 65
     ArgTypeList  go to state 114
 
 
-state 66
+State 66
 
    15 ArrowType: OPEN ArgTypeList CLOSE . ARROW ArrowType
 
     ARROW  shift, and go to state 115
 
 
-state 67
+State 67
 
    30 SimpleType: OPEN_BRACKET VarDeclarationList CLOSE_BRACKET .
 
     $default  reduce using rule 30 (SimpleType)
 
 
-state 68
+State 68
 
    42 VarDeclarationList: VarDeclaration COMMA . VarDeclarationList
 
@@ -1101,7 +1101,7 @@ state 68
     VarDeclaration      go to state 48
 
 
-state 69
+State 69
 
    20 PointerType: BOX SimpleType OPEN_S_BRACKET . CLOSE_S_BRACKET
    23 ArrayType: SimpleType OPEN_S_BRACKET . INTEGER_EXPR CLOSE_S_BRACKET
@@ -1112,7 +1112,7 @@ state 69
     INTEGER_EXPR  go to state 76
 
 
-state 70
+State 70
 
    48 UnionDeclaration: TAG . ArrowType
    49                 | TAG .
@@ -1140,14 +1140,14 @@ state 70
     SimpleType   go to state 30
 
 
-state 71
+State 71
 
    31 SimpleType: UNION OPEN_BRACKET UnionDeclarationList . CLOSE_BRACKET
 
     CLOSE_BRACKET  shift, and go to state 119
 
 
-state 72
+State 72
 
    46 UnionDeclarationList: UnionDeclaration . PIPE UnionDeclarationList
    47                     | UnionDeclaration .
@@ -1157,77 +1157,77 @@ state 72
     $default  reduce using rule 47 (UnionDeclarationList)
 
 
-state 73
+State 73
 
     9 Definition: DATATYPE ArrowType AS TAG . OPEN VarDeclarations CLOSE Expr WITH OPEN FunctionList CLOSE
 
     OPEN  shift, and go to state 121
 
 
-state 74
+State 74
 
    14 ArrowType: PointerType ARROW ArrowType .
 
     $default  reduce using rule 14 (ArrowType)
 
 
-state 75
+State 75
 
   121 INTEGER_EXPR: INTEGER .
 
     $default  reduce using rule 121 (INTEGER_EXPR)
 
 
-state 76
+State 76
 
    23 ArrayType: SimpleType OPEN_S_BRACKET INTEGER_EXPR . CLOSE_S_BRACKET
 
     CLOSE_S_BRACKET  shift, and go to state 122
 
 
-state 77
+State 77
 
    10 Function: FUNCTION TAG OPEN VarDeclarations . CLOSE COLON ArrowType EQUALS Expr
 
     CLOSE  shift, and go to state 123
 
 
-state 78
+State 78
 
    40 VarDeclarations: VarDeclarationList .
 
     $default  reduce using rule 40 (VarDeclarations)
 
 
-state 79
+State 79
 
    11 Function: PROTOTYPE TAG OPEN VarDeclarations . CLOSE COLON ArrowType
 
     CLOSE  shift, and go to state 124
 
 
-state 80
+State 80
 
     6 Definition: TYPEDEF TAG EQUALS ArrowType .
 
     $default  reduce using rule 6 (Definition)
 
 
-state 81
+State 81
 
    44 VarDeclaration: TAG COLON ArrowType .
 
     $default  reduce using rule 44 (VarDeclaration)
 
 
-state 82
+State 82
 
   120 DOUBLE_EXPR: DOUBLE_VALUE .
 
     $default  reduce using rule 120 (DOUBLE_EXPR)
 
 
-state 83
+State 83
 
   100 Value: TAG . OPEN_BRACKET MapsList CLOSE_BRACKET
   101      | TAG . DOUBLE_COLON TAG OPEN_BRACKET Expr CLOSE_BRACKET
@@ -1243,7 +1243,7 @@ state 83
     $default  reduce using rule 105 (Value)
 
 
-state 84
+State 84
 
    84 Value: PLUS . Value
 
@@ -1273,7 +1273,7 @@ state 84
     STRING_EXPR   go to state 110
 
 
-state 85
+State 85
 
    85 Value: MINUS . Value
 
@@ -1303,7 +1303,7 @@ state 85
     STRING_EXPR   go to state 110
 
 
-state 86
+State 86
 
    86 Value: TIMES . Value
 
@@ -1333,7 +1333,7 @@ state 86
     STRING_EXPR   go to state 110
 
 
-state 87
+State 87
 
    96 Value: OPEN_S_BRACKET . INTEGER_EXPR OF TAG IN Expr CLOSE_S_BRACKET
    99      | OPEN_S_BRACKET . Arguments CLOSE_S_BRACKET
@@ -1377,7 +1377,7 @@ state 87
     STRING_EXPR   go to state 110
 
 
-state 88
+State 88
 
    98 Value: OPEN_BRACKET . VarDeclarationList APPLY Expr CLOSE_BRACKET
 
@@ -1387,14 +1387,14 @@ state 88
     VarDeclaration      go to state 48
 
 
-state 89
+State 89
 
    95 Value: ARRAY . WITH Expr OF OPEN TAG IN Expr CLOSE
 
     WITH  shift, and go to state 135
 
 
-state 90
+State 90
 
    89 Value: BOX . Value
    94      | BOX . WITH Expr OF OPEN TAG IN Expr CLOSE
@@ -1426,7 +1426,7 @@ state 90
     STRING_EXPR   go to state 110
 
 
-state 91
+State 91
 
    90 Value: UNBOX . Value
 
@@ -1456,7 +1456,7 @@ state 91
     STRING_EXPR   go to state 110
 
 
-state 92
+State 92
 
    53 Expr: LET . VarDeclaration EQUALS Expr IN Expr
 
@@ -1465,7 +1465,7 @@ state 92
     VarDeclaration  go to state 139
 
 
-state 93
+State 93
 
    57 Expr: FOR . VarDeclaration EQUALS Expr COMMA Expr COMMA Expr IN Expr
 
@@ -1474,7 +1474,7 @@ state 93
     VarDeclaration  go to state 140
 
 
-state 94
+State 94
 
    58 Expr: FOREACH . VarDeclaration FROM Expr IN Expr
 
@@ -1483,7 +1483,7 @@ state 94
     VarDeclaration  go to state 141
 
 
-state 95
+State 95
 
    59 Expr: WHILE . Expr IN Expr
 
@@ -1523,7 +1523,7 @@ state 95
     STRING_EXPR   go to state 110
 
 
-state 96
+State 96
 
    55 Expr: IF . Expr THEN Expr ELSE Expr
 
@@ -1563,7 +1563,7 @@ state 96
     STRING_EXPR   go to state 110
 
 
-state 97
+State 97
 
    88 Value: CARDINAL . Value
 
@@ -1593,7 +1593,7 @@ state 97
     STRING_EXPR   go to state 110
 
 
-state 98
+State 98
 
    97 Value: NEW . ArrowType OPEN Arguments CLOSE
 
@@ -1618,7 +1618,7 @@ state 98
     SimpleType   go to state 30
 
 
-state 99
+State 99
 
    87 Value: AMPERSAND . Value
 
@@ -1648,7 +1648,7 @@ state 99
     STRING_EXPR   go to state 110
 
 
-state 100
+State 100
 
    83 Value: NOT . Value
 
@@ -1678,7 +1678,7 @@ state 100
     STRING_EXPR   go to state 110
 
 
-state 101
+State 101
 
    54 Expr: STATIC . VarDeclaration EQUALS Expr IN Expr
 
@@ -1687,7 +1687,7 @@ state 101
     VarDeclaration  go to state 148
 
 
-state 102
+State 102
 
    56 Expr: CASE . Expr OF OPEN CaseList CLOSE
 
@@ -1727,14 +1727,14 @@ state 102
     STRING_EXPR   go to state 110
 
 
-state 103
+State 103
 
     8 Definition: STATIC VarDeclaration EQUALS Expr .
 
     $default  reduce using rule 8 (Definition)
 
 
-state 104
+State 104
 
    50 Expr: ExpOp . ASSIGN Expr
    51     | ExpOp . COLON ArrowType
@@ -1770,14 +1770,14 @@ state 104
     $default  reduce using rule 60 (Expr)
 
 
-state 105
+State 105
 
    72 ExpOp: Access .
 
     $default  reduce using rule 72 (ExpOp)
 
 
-state 106
+State 106
 
    73 Access: Value . AccessPathList
    74       | Value .
@@ -1793,49 +1793,49 @@ state 106
     AccessPath      go to state 169
 
 
-state 107
+State 107
 
   104 Value: TAG_OR_EMPTY . OPEN Arguments CLOSE
 
     OPEN  shift, and go to state 170
 
 
-state 108
+State 108
 
    91 Value: DOUBLE_EXPR .
 
     $default  reduce using rule 91 (Value)
 
 
-state 109
+State 109
 
    92 Value: INTEGER_EXPR .
 
     $default  reduce using rule 92 (Value)
 
 
-state 110
+State 110
 
    93 Value: STRING_EXPR .
 
     $default  reduce using rule 93 (Value)
 
 
-state 111
+State 111
 
    19 PointerType: TIMES SimpleType OPEN_S_BRACKET CLOSE_S_BRACKET .
 
     $default  reduce using rule 19 (PointerType)
 
 
-state 112
+State 112
 
    16 ArrowType: OPEN CLOSE ARROW ArrowType .
 
     $default  reduce using rule 16 (ArrowType)
 
 
-state 113
+State 113
 
    38 ArgTypeList: PointerType . COMMA ArgTypeList
    39            | PointerType . COMMA PointerType
@@ -1846,14 +1846,14 @@ state 113
     $default  reduce using rule 39 (ArgTypeList)
 
 
-state 114
+State 114
 
    38 ArgTypeList: PointerType COMMA ArgTypeList .
 
     $default  reduce using rule 38 (ArgTypeList)
 
 
-state 115
+State 115
 
    15 ArrowType: OPEN ArgTypeList CLOSE ARROW . ArrowType
 
@@ -1878,35 +1878,35 @@ state 115
     SimpleType   go to state 30
 
 
-state 116
+State 116
 
    42 VarDeclarationList: VarDeclaration COMMA VarDeclarationList .
 
     $default  reduce using rule 42 (VarDeclarationList)
 
 
-state 117
+State 117
 
    20 PointerType: BOX SimpleType OPEN_S_BRACKET CLOSE_S_BRACKET .
 
     $default  reduce using rule 20 (PointerType)
 
 
-state 118
+State 118
 
    48 UnionDeclaration: TAG ArrowType .
 
     $default  reduce using rule 48 (UnionDeclaration)
 
 
-state 119
+State 119
 
    31 SimpleType: UNION OPEN_BRACKET UnionDeclarationList CLOSE_BRACKET .
 
     $default  reduce using rule 31 (SimpleType)
 
 
-state 120
+State 120
 
    46 UnionDeclarationList: UnionDeclaration PIPE . UnionDeclarationList
 
@@ -1916,7 +1916,7 @@ state 120
     UnionDeclaration      go to state 72
 
 
-state 121
+State 121
 
     9 Definition: DATATYPE ArrowType AS TAG OPEN . VarDeclarations CLOSE Expr WITH OPEN FunctionList CLOSE
 
@@ -1929,28 +1929,28 @@ state 121
     VarDeclaration      go to state 48
 
 
-state 122
+State 122
 
    23 ArrayType: SimpleType OPEN_S_BRACKET INTEGER_EXPR CLOSE_S_BRACKET .
 
     $default  reduce using rule 23 (ArrayType)
 
 
-state 123
+State 123
 
    10 Function: FUNCTION TAG OPEN VarDeclarations CLOSE . COLON ArrowType EQUALS Expr
 
     COLON  shift, and go to state 174
 
 
-state 124
+State 124
 
    11 Function: PROTOTYPE TAG OPEN VarDeclarations CLOSE . COLON ArrowType
 
     COLON  shift, and go to state 175
 
 
-state 125
+State 125
 
   100 Value: TAG OPEN_BRACKET . MapsList CLOSE_BRACKET
 
@@ -1961,7 +1961,7 @@ state 125
     MapsList        go to state 178
 
 
-state 126
+State 126
 
   101 Value: TAG DOUBLE_COLON . TAG OPEN_BRACKET Expr CLOSE_BRACKET
   102      | TAG DOUBLE_COLON . TAG OPEN_BRACKET OPEN_BRACKET MapsList CLOSE_BRACKET CLOSE_BRACKET
@@ -1970,28 +1970,28 @@ state 126
     TAG  shift, and go to state 179
 
 
-state 127
+State 127
 
    84 Value: PLUS Value .
 
     $default  reduce using rule 84 (Value)
 
 
-state 128
+State 128
 
    85 Value: MINUS Value .
 
     $default  reduce using rule 85 (Value)
 
 
-state 129
+State 129
 
    86 Value: TIMES Value .
 
     $default  reduce using rule 86 (Value)
 
 
-state 130
+State 130
 
   110 ArgList: Expr . COMMA ArgList
   111        | Expr .
@@ -2001,21 +2001,21 @@ state 130
     $default  reduce using rule 111 (ArgList)
 
 
-state 131
+State 131
 
    99 Value: OPEN_S_BRACKET Arguments . CLOSE_S_BRACKET
 
     CLOSE_S_BRACKET  shift, and go to state 181
 
 
-state 132
+State 132
 
   108 Arguments: ArgList .
 
     $default  reduce using rule 108 (Arguments)
 
 
-state 133
+State 133
 
    92 Value: INTEGER_EXPR .
    96      | OPEN_S_BRACKET INTEGER_EXPR . OF TAG IN Expr CLOSE_S_BRACKET
@@ -2025,14 +2025,14 @@ state 133
     $default  reduce using rule 92 (Value)
 
 
-state 134
+State 134
 
    98 Value: OPEN_BRACKET VarDeclarationList . APPLY Expr CLOSE_BRACKET
 
     APPLY  shift, and go to state 183
 
 
-state 135
+State 135
 
    95 Value: ARRAY WITH . Expr OF OPEN TAG IN Expr CLOSE
 
@@ -2072,7 +2072,7 @@ state 135
     STRING_EXPR   go to state 110
 
 
-state 136
+State 136
 
    94 Value: BOX WITH . Expr OF OPEN TAG IN Expr CLOSE
 
@@ -2112,98 +2112,98 @@ state 136
     STRING_EXPR   go to state 110
 
 
-state 137
+State 137
 
    89 Value: BOX Value .
 
     $default  reduce using rule 89 (Value)
 
 
-state 138
+State 138
 
    90 Value: UNBOX Value .
 
     $default  reduce using rule 90 (Value)
 
 
-state 139
+State 139
 
    53 Expr: LET VarDeclaration . EQUALS Expr IN Expr
 
     EQUALS  shift, and go to state 186
 
 
-state 140
+State 140
 
    57 Expr: FOR VarDeclaration . EQUALS Expr COMMA Expr COMMA Expr IN Expr
 
     EQUALS  shift, and go to state 187
 
 
-state 141
+State 141
 
    58 Expr: FOREACH VarDeclaration . FROM Expr IN Expr
 
     FROM  shift, and go to state 188
 
 
-state 142
+State 142
 
    59 Expr: WHILE Expr . IN Expr
 
     IN  shift, and go to state 189
 
 
-state 143
+State 143
 
    55 Expr: IF Expr . THEN Expr ELSE Expr
 
     THEN  shift, and go to state 190
 
 
-state 144
+State 144
 
    88 Value: CARDINAL Value .
 
     $default  reduce using rule 88 (Value)
 
 
-state 145
+State 145
 
    97 Value: NEW ArrowType . OPEN Arguments CLOSE
 
     OPEN  shift, and go to state 191
 
 
-state 146
+State 146
 
    87 Value: AMPERSAND Value .
 
     $default  reduce using rule 87 (Value)
 
 
-state 147
+State 147
 
    83 Value: NOT Value .
 
     $default  reduce using rule 83 (Value)
 
 
-state 148
+State 148
 
    54 Expr: STATIC VarDeclaration . EQUALS Expr IN Expr
 
     EQUALS  shift, and go to state 192
 
 
-state 149
+State 149
 
    56 Expr: CASE Expr . OF OPEN CaseList CLOSE
 
     OF  shift, and go to state 193
 
 
-state 150
+State 150
 
    68 ExpOp: ExpOp PLUS . ExpOp
 
@@ -2235,7 +2235,7 @@ state 150
     STRING_EXPR   go to state 110
 
 
-state 151
+State 151
 
    69 ExpOp: ExpOp MINUS . ExpOp
 
@@ -2267,7 +2267,7 @@ state 151
     STRING_EXPR   go to state 110
 
 
-state 152
+State 152
 
    70 ExpOp: ExpOp TIMES . ExpOp
 
@@ -2299,7 +2299,7 @@ state 152
     STRING_EXPR   go to state 110
 
 
-state 153
+State 153
 
    71 ExpOp: ExpOp DIVIDE . ExpOp
 
@@ -2331,7 +2331,7 @@ state 153
     STRING_EXPR   go to state 110
 
 
-state 154
+State 154
 
    51 Expr: ExpOp COLON . ArrowType
 
@@ -2356,7 +2356,7 @@ state 154
     SimpleType   go to state 30
 
 
-state 155
+State 155
 
    50 Expr: ExpOp ASSIGN . Expr
 
@@ -2396,7 +2396,7 @@ state 155
     STRING_EXPR   go to state 110
 
 
-state 156
+State 156
 
    61 ExpOp: ExpOp AND . ExpOp
 
@@ -2428,7 +2428,7 @@ state 156
     STRING_EXPR   go to state 110
 
 
-state 157
+State 157
 
    62 ExpOp: ExpOp OR . ExpOp
 
@@ -2460,7 +2460,7 @@ state 157
     STRING_EXPR   go to state 110
 
 
-state 158
+State 158
 
    63 ExpOp: ExpOp LTE . ExpOp
 
@@ -2492,7 +2492,7 @@ state 158
     STRING_EXPR   go to state 110
 
 
-state 159
+State 159
 
    64 ExpOp: ExpOp GTE . ExpOp
 
@@ -2524,7 +2524,7 @@ state 159
     STRING_EXPR   go to state 110
 
 
-state 160
+State 160
 
    65 ExpOp: ExpOp LT . ExpOp
 
@@ -2556,7 +2556,7 @@ state 160
     STRING_EXPR   go to state 110
 
 
-state 161
+State 161
 
    66 ExpOp: ExpOp GT . ExpOp
 
@@ -2588,7 +2588,7 @@ state 161
     STRING_EXPR   go to state 110
 
 
-state 162
+State 162
 
    67 ExpOp: ExpOp EQ . ExpOp
 
@@ -2620,7 +2620,7 @@ state 162
     STRING_EXPR   go to state 110
 
 
-state 163
+State 163
 
    52 Expr: ExpOp IS . ArrowType
 
@@ -2645,7 +2645,7 @@ state 163
     SimpleType   go to state 30
 
 
-state 164
+State 164
 
    80 AccessPath: OPEN_S_BRACKET . Expr CLOSE_S_BRACKET
 
@@ -2685,7 +2685,7 @@ state 164
     STRING_EXPR   go to state 110
 
 
-state 165
+State 165
 
    78 AccessPath: ARROW . TAG
    81           | ARROW . OPEN_S_BRACKET Expr CLOSE_S_BRACKET
@@ -2694,7 +2694,7 @@ state 165
     OPEN_S_BRACKET  shift, and go to state 210
 
 
-state 166
+State 166
 
    79 AccessPath: DOUBLE_ARROW . TAG
    82           | DOUBLE_ARROW . OPEN_S_BRACKET Expr CLOSE_S_BRACKET
@@ -2703,21 +2703,21 @@ state 166
     OPEN_S_BRACKET  shift, and go to state 212
 
 
-state 167
+State 167
 
    77 AccessPath: DOT . TAG
 
     TAG  shift, and go to state 213
 
 
-state 168
+State 168
 
    73 Access: Value AccessPathList .
 
     $default  reduce using rule 73 (Access)
 
 
-state 169
+State 169
 
    75 AccessPathList: AccessPath . AccessPathList
    76               | AccessPath .
@@ -2733,7 +2733,7 @@ state 169
     AccessPath      go to state 169
 
 
-state 170
+State 170
 
   104 Value: TAG_OR_EMPTY OPEN . Arguments CLOSE
 
@@ -2776,28 +2776,28 @@ state 170
     STRING_EXPR   go to state 110
 
 
-state 171
+State 171
 
    15 ArrowType: OPEN ArgTypeList CLOSE ARROW ArrowType .
 
     $default  reduce using rule 15 (ArrowType)
 
 
-state 172
+State 172
 
    46 UnionDeclarationList: UnionDeclaration PIPE UnionDeclarationList .
 
     $default  reduce using rule 46 (UnionDeclarationList)
 
 
-state 173
+State 173
 
     9 Definition: DATATYPE ArrowType AS TAG OPEN VarDeclarations . CLOSE Expr WITH OPEN FunctionList CLOSE
 
     CLOSE  shift, and go to state 216
 
 
-state 174
+State 174
 
    10 Function: FUNCTION TAG OPEN VarDeclarations CLOSE COLON . ArrowType EQUALS Expr
 
@@ -2822,7 +2822,7 @@ state 174
     SimpleType   go to state 30
 
 
-state 175
+State 175
 
    11 Function: PROTOTYPE TAG OPEN VarDeclarations CLOSE COLON . ArrowType
 
@@ -2847,14 +2847,14 @@ state 175
     SimpleType   go to state 30
 
 
-state 176
+State 176
 
   112 Mapping: VarDeclaration . EQUALS Expr
 
     EQUALS  shift, and go to state 219
 
 
-state 177
+State 177
 
   113 MapsList: Mapping . COMMA MapsList
   114         | Mapping .
@@ -2864,14 +2864,14 @@ state 177
     $default  reduce using rule 114 (MapsList)
 
 
-state 178
+State 178
 
   100 Value: TAG OPEN_BRACKET MapsList . CLOSE_BRACKET
 
     CLOSE_BRACKET  shift, and go to state 221
 
 
-state 179
+State 179
 
   101 Value: TAG DOUBLE_COLON TAG . OPEN_BRACKET Expr CLOSE_BRACKET
   102      | TAG DOUBLE_COLON TAG . OPEN_BRACKET OPEN_BRACKET MapsList CLOSE_BRACKET CLOSE_BRACKET
@@ -2882,7 +2882,7 @@ state 179
     $default  reduce using rule 103 (Value)
 
 
-state 180
+State 180
 
   110 ArgList: Expr COMMA . ArgList
 
@@ -2923,21 +2923,21 @@ state 180
     STRING_EXPR   go to state 110
 
 
-state 181
+State 181
 
    99 Value: OPEN_S_BRACKET Arguments CLOSE_S_BRACKET .
 
     $default  reduce using rule 99 (Value)
 
 
-state 182
+State 182
 
    96 Value: OPEN_S_BRACKET INTEGER_EXPR OF . TAG IN Expr CLOSE_S_BRACKET
 
     TAG  shift, and go to state 224
 
 
-state 183
+State 183
 
    98 Value: OPEN_BRACKET VarDeclarationList APPLY . Expr CLOSE_BRACKET
 
@@ -2977,21 +2977,21 @@ state 183
     STRING_EXPR   go to state 110
 
 
-state 184
+State 184
 
    95 Value: ARRAY WITH Expr . OF OPEN TAG IN Expr CLOSE
 
     OF  shift, and go to state 226
 
 
-state 185
+State 185
 
    94 Value: BOX WITH Expr . OF OPEN TAG IN Expr CLOSE
 
     OF  shift, and go to state 227
 
 
-state 186
+State 186
 
    53 Expr: LET VarDeclaration EQUALS . Expr IN Expr
 
@@ -3031,7 +3031,7 @@ state 186
     STRING_EXPR   go to state 110
 
 
-state 187
+State 187
 
    57 Expr: FOR VarDeclaration EQUALS . Expr COMMA Expr COMMA Expr IN Expr
 
@@ -3071,7 +3071,7 @@ state 187
     STRING_EXPR   go to state 110
 
 
-state 188
+State 188
 
    58 Expr: FOREACH VarDeclaration FROM . Expr IN Expr
 
@@ -3111,7 +3111,7 @@ state 188
     STRING_EXPR   go to state 110
 
 
-state 189
+State 189
 
    59 Expr: WHILE Expr IN . Expr
 
@@ -3151,7 +3151,7 @@ state 189
     STRING_EXPR   go to state 110
 
 
-state 190
+State 190
 
    55 Expr: IF Expr THEN . Expr ELSE Expr
 
@@ -3191,7 +3191,7 @@ state 190
     STRING_EXPR   go to state 110
 
 
-state 191
+State 191
 
    97 Value: NEW ArrowType OPEN . Arguments CLOSE
 
@@ -3234,7 +3234,7 @@ state 191
     STRING_EXPR   go to state 110
 
 
-state 192
+State 192
 
    54 Expr: STATIC VarDeclaration EQUALS . Expr IN Expr
 
@@ -3274,14 +3274,14 @@ state 192
     STRING_EXPR   go to state 110
 
 
-state 193
+State 193
 
    56 Expr: CASE Expr OF . OPEN CaseList CLOSE
 
     OPEN  shift, and go to state 235
 
 
-state 194
+State 194
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3302,7 +3302,7 @@ state 194
     $default  reduce using rule 68 (ExpOp)
 
 
-state 195
+State 195
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3323,7 +3323,7 @@ state 195
     $default  reduce using rule 69 (ExpOp)
 
 
-state 196
+State 196
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3341,7 +3341,7 @@ state 196
     $default  reduce using rule 70 (ExpOp)
 
 
-state 197
+State 197
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3359,21 +3359,21 @@ state 197
     $default  reduce using rule 71 (ExpOp)
 
 
-state 198
+State 198
 
    51 Expr: ExpOp COLON ArrowType .
 
     $default  reduce using rule 51 (Expr)
 
 
-state 199
+State 199
 
    50 Expr: ExpOp ASSIGN Expr .
 
     $default  reduce using rule 50 (Expr)
 
 
-state 200
+State 200
 
    61 ExpOp: ExpOp . AND ExpOp
    61      | ExpOp AND ExpOp .
@@ -3401,7 +3401,7 @@ state 200
     $default  reduce using rule 61 (ExpOp)
 
 
-state 201
+State 201
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3429,7 +3429,7 @@ state 201
     $default  reduce using rule 62 (ExpOp)
 
 
-state 202
+State 202
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3452,7 +3452,7 @@ state 202
     $default  reduce using rule 63 (ExpOp)
 
 
-state 203
+State 203
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3475,7 +3475,7 @@ state 203
     $default  reduce using rule 64 (ExpOp)
 
 
-state 204
+State 204
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3498,7 +3498,7 @@ state 204
     $default  reduce using rule 65 (ExpOp)
 
 
-state 205
+State 205
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3521,7 +3521,7 @@ state 205
     $default  reduce using rule 66 (ExpOp)
 
 
-state 206
+State 206
 
    61 ExpOp: ExpOp . AND ExpOp
    62      | ExpOp . OR ExpOp
@@ -3544,28 +3544,28 @@ state 206
     $default  reduce using rule 67 (ExpOp)
 
 
-state 207
+State 207
 
    52 Expr: ExpOp IS ArrowType .
 
     $default  reduce using rule 52 (Expr)
 
 
-state 208
+State 208
 
    80 AccessPath: OPEN_S_BRACKET Expr . CLOSE_S_BRACKET
 
     CLOSE_S_BRACKET  shift, and go to state 236
 
 
-state 209
+State 209
 
    78 AccessPath: ARROW TAG .
 
     $default  reduce using rule 78 (AccessPath)
 
 
-state 210
+State 210
 
    81 AccessPath: ARROW OPEN_S_BRACKET . Expr CLOSE_S_BRACKET
 
@@ -3605,14 +3605,14 @@ state 210
     STRING_EXPR   go to state 110
 
 
-state 211
+State 211
 
    79 AccessPath: DOUBLE_ARROW TAG .
 
     $default  reduce using rule 79 (AccessPath)
 
 
-state 212
+State 212
 
    82 AccessPath: DOUBLE_ARROW OPEN_S_BRACKET . Expr CLOSE_S_BRACKET
 
@@ -3652,28 +3652,28 @@ state 212
     STRING_EXPR   go to state 110
 
 
-state 213
+State 213
 
    77 AccessPath: DOT TAG .
 
     $default  reduce using rule 77 (AccessPath)
 
 
-state 214
+State 214
 
    75 AccessPathList: AccessPath AccessPathList .
 
     $default  reduce using rule 75 (AccessPathList)
 
 
-state 215
+State 215
 
   104 Value: TAG_OR_EMPTY OPEN Arguments . CLOSE
 
     CLOSE  shift, and go to state 239
 
 
-state 216
+State 216
 
     9 Definition: DATATYPE ArrowType AS TAG OPEN VarDeclarations CLOSE . Expr WITH OPEN FunctionList CLOSE
 
@@ -3713,21 +3713,21 @@ state 216
     STRING_EXPR   go to state 110
 
 
-state 217
+State 217
 
    10 Function: FUNCTION TAG OPEN VarDeclarations CLOSE COLON ArrowType . EQUALS Expr
 
     EQUALS  shift, and go to state 241
 
 
-state 218
+State 218
 
    11 Function: PROTOTYPE TAG OPEN VarDeclarations CLOSE COLON ArrowType .
 
     $default  reduce using rule 11 (Function)
 
 
-state 219
+State 219
 
   112 Mapping: VarDeclaration EQUALS . Expr
 
@@ -3767,7 +3767,7 @@ state 219
     STRING_EXPR   go to state 110
 
 
-state 220
+State 220
 
   113 MapsList: Mapping COMMA . MapsList
 
@@ -3778,14 +3778,14 @@ state 220
     MapsList        go to state 243
 
 
-state 221
+State 221
 
   100 Value: TAG OPEN_BRACKET MapsList CLOSE_BRACKET .
 
     $default  reduce using rule 100 (Value)
 
 
-state 222
+State 222
 
   101 Value: TAG DOUBLE_COLON TAG OPEN_BRACKET . Expr CLOSE_BRACKET
   102      | TAG DOUBLE_COLON TAG OPEN_BRACKET . OPEN_BRACKET MapsList CLOSE_BRACKET CLOSE_BRACKET
@@ -3826,91 +3826,91 @@ state 222
     STRING_EXPR   go to state 110
 
 
-state 223
+State 223
 
   110 ArgList: Expr COMMA ArgList .
 
     $default  reduce using rule 110 (ArgList)
 
 
-state 224
+State 224
 
    96 Value: OPEN_S_BRACKET INTEGER_EXPR OF TAG . IN Expr CLOSE_S_BRACKET
 
     IN  shift, and go to state 246
 
 
-state 225
+State 225
 
    98 Value: OPEN_BRACKET VarDeclarationList APPLY Expr . CLOSE_BRACKET
 
     CLOSE_BRACKET  shift, and go to state 247
 
 
-state 226
+State 226
 
    95 Value: ARRAY WITH Expr OF . OPEN TAG IN Expr CLOSE
 
     OPEN  shift, and go to state 248
 
 
-state 227
+State 227
 
    94 Value: BOX WITH Expr OF . OPEN TAG IN Expr CLOSE
 
     OPEN  shift, and go to state 249
 
 
-state 228
+State 228
 
    53 Expr: LET VarDeclaration EQUALS Expr . IN Expr
 
     IN  shift, and go to state 250
 
 
-state 229
+State 229
 
    57 Expr: FOR VarDeclaration EQUALS Expr . COMMA Expr COMMA Expr IN Expr
 
     COMMA  shift, and go to state 251
 
 
-state 230
+State 230
 
    58 Expr: FOREACH VarDeclaration FROM Expr . IN Expr
 
     IN  shift, and go to state 252
 
 
-state 231
+State 231
 
    59 Expr: WHILE Expr IN Expr .
 
     $default  reduce using rule 59 (Expr)
 
 
-state 232
+State 232
 
    55 Expr: IF Expr THEN Expr . ELSE Expr
 
     ELSE  shift, and go to state 253
 
 
-state 233
+State 233
 
    97 Value: NEW ArrowType OPEN Arguments . CLOSE
 
     CLOSE  shift, and go to state 254
 
 
-state 234
+State 234
 
    54 Expr: STATIC VarDeclaration EQUALS Expr . IN Expr
 
     IN  shift, and go to state 255
 
 
-state 235
+State 235
 
    56 Expr: CASE Expr OF OPEN . CaseList CLOSE
 
@@ -3921,42 +3921,42 @@ state 235
     CaseList  go to state 259
 
 
-state 236
+State 236
 
    80 AccessPath: OPEN_S_BRACKET Expr CLOSE_S_BRACKET .
 
     $default  reduce using rule 80 (AccessPath)
 
 
-state 237
+State 237
 
    81 AccessPath: ARROW OPEN_S_BRACKET Expr . CLOSE_S_BRACKET
 
     CLOSE_S_BRACKET  shift, and go to state 260
 
 
-state 238
+State 238
 
    82 AccessPath: DOUBLE_ARROW OPEN_S_BRACKET Expr . CLOSE_S_BRACKET
 
     CLOSE_S_BRACKET  shift, and go to state 261
 
 
-state 239
+State 239
 
   104 Value: TAG_OR_EMPTY OPEN Arguments CLOSE .
 
     $default  reduce using rule 104 (Value)
 
 
-state 240
+State 240
 
     9 Definition: DATATYPE ArrowType AS TAG OPEN VarDeclarations CLOSE Expr . WITH OPEN FunctionList CLOSE
 
     WITH  shift, and go to state 262
 
 
-state 241
+State 241
 
    10 Function: FUNCTION TAG OPEN VarDeclarations CLOSE COLON ArrowType EQUALS . Expr
 
@@ -3996,21 +3996,21 @@ state 241
     STRING_EXPR   go to state 110
 
 
-state 242
+State 242
 
   112 Mapping: VarDeclaration EQUALS Expr .
 
     $default  reduce using rule 112 (Mapping)
 
 
-state 243
+State 243
 
   113 MapsList: Mapping COMMA MapsList .
 
     $default  reduce using rule 113 (MapsList)
 
 
-state 244
+State 244
 
    98 Value: OPEN_BRACKET . VarDeclarationList APPLY Expr CLOSE_BRACKET
   102      | TAG DOUBLE_COLON TAG OPEN_BRACKET OPEN_BRACKET . MapsList CLOSE_BRACKET CLOSE_BRACKET
@@ -4023,14 +4023,14 @@ state 244
     MapsList            go to state 265
 
 
-state 245
+State 245
 
   101 Value: TAG DOUBLE_COLON TAG OPEN_BRACKET Expr . CLOSE_BRACKET
 
     CLOSE_BRACKET  shift, and go to state 266
 
 
-state 246
+State 246
 
    96 Value: OPEN_S_BRACKET INTEGER_EXPR OF TAG IN . Expr CLOSE_S_BRACKET
 
@@ -4070,28 +4070,28 @@ state 246
     STRING_EXPR   go to state 110
 
 
-state 247
+State 247
 
    98 Value: OPEN_BRACKET VarDeclarationList APPLY Expr CLOSE_BRACKET .
 
     $default  reduce using rule 98 (Value)
 
 
-state 248
+State 248
 
    95 Value: ARRAY WITH Expr OF OPEN . TAG IN Expr CLOSE
 
     TAG  shift, and go to state 268
 
 
-state 249
+State 249
 
    94 Value: BOX WITH Expr OF OPEN . TAG IN Expr CLOSE
 
     TAG  shift, and go to state 269
 
 
-state 250
+State 250
 
    53 Expr: LET VarDeclaration EQUALS Expr IN . Expr
 
@@ -4131,7 +4131,7 @@ state 250
     STRING_EXPR   go to state 110
 
 
-state 251
+State 251
 
    57 Expr: FOR VarDeclaration EQUALS Expr COMMA . Expr COMMA Expr IN Expr
 
@@ -4171,7 +4171,7 @@ state 251
     STRING_EXPR   go to state 110
 
 
-state 252
+State 252
 
    58 Expr: FOREACH VarDeclaration FROM Expr IN . Expr
 
@@ -4211,7 +4211,7 @@ state 252
     STRING_EXPR   go to state 110
 
 
-state 253
+State 253
 
    55 Expr: IF Expr THEN Expr ELSE . Expr
 
@@ -4251,14 +4251,14 @@ state 253
     STRING_EXPR   go to state 110
 
 
-state 254
+State 254
 
    97 Value: NEW ArrowType OPEN Arguments CLOSE .
 
     $default  reduce using rule 97 (Value)
 
 
-state 255
+State 255
 
    54 Expr: STATIC VarDeclaration EQUALS Expr IN . Expr
 
@@ -4298,7 +4298,7 @@ state 255
     STRING_EXPR   go to state 110
 
 
-state 256
+State 256
 
   115 Case: TAG . VarDeclaration IN Expr
   116     | TAG . IN Expr
@@ -4309,14 +4309,14 @@ state 256
     VarDeclaration  go to state 276
 
 
-state 257
+State 257
 
   117 Case: OTHERWISE . IN Expr
 
     IN  shift, and go to state 277
 
 
-state 258
+State 258
 
   118 CaseList: Case . PIPE CaseList
   119         | Case .
@@ -4326,42 +4326,42 @@ state 258
     $default  reduce using rule 119 (CaseList)
 
 
-state 259
+State 259
 
    56 Expr: CASE Expr OF OPEN CaseList . CLOSE
 
     CLOSE  shift, and go to state 279
 
 
-state 260
+State 260
 
    81 AccessPath: ARROW OPEN_S_BRACKET Expr CLOSE_S_BRACKET .
 
     $default  reduce using rule 81 (AccessPath)
 
 
-state 261
+State 261
 
    82 AccessPath: DOUBLE_ARROW OPEN_S_BRACKET Expr CLOSE_S_BRACKET .
 
     $default  reduce using rule 82 (AccessPath)
 
 
-state 262
+State 262
 
     9 Definition: DATATYPE ArrowType AS TAG OPEN VarDeclarations CLOSE Expr WITH . OPEN FunctionList CLOSE
 
     OPEN  shift, and go to state 280
 
 
-state 263
+State 263
 
    10 Function: FUNCTION TAG OPEN VarDeclarations CLOSE COLON ArrowType EQUALS Expr .
 
     $default  reduce using rule 10 (Function)
 
 
-state 264
+State 264
 
    42 VarDeclarationList: VarDeclaration . COMMA VarDeclarationList
    43                   | VarDeclaration .
@@ -4373,77 +4373,77 @@ state 264
     $default  reduce using rule 43 (VarDeclarationList)
 
 
-state 265
+State 265
 
   102 Value: TAG DOUBLE_COLON TAG OPEN_BRACKET OPEN_BRACKET MapsList . CLOSE_BRACKET CLOSE_BRACKET
 
     CLOSE_BRACKET  shift, and go to state 281
 
 
-state 266
+State 266
 
   101 Value: TAG DOUBLE_COLON TAG OPEN_BRACKET Expr CLOSE_BRACKET .
 
     $default  reduce using rule 101 (Value)
 
 
-state 267
+State 267
 
    96 Value: OPEN_S_BRACKET INTEGER_EXPR OF TAG IN Expr . CLOSE_S_BRACKET
 
     CLOSE_S_BRACKET  shift, and go to state 282
 
 
-state 268
+State 268
 
    95 Value: ARRAY WITH Expr OF OPEN TAG . IN Expr CLOSE
 
     IN  shift, and go to state 283
 
 
-state 269
+State 269
 
    94 Value: BOX WITH Expr OF OPEN TAG . IN Expr CLOSE
 
     IN  shift, and go to state 284
 
 
-state 270
+State 270
 
    53 Expr: LET VarDeclaration EQUALS Expr IN Expr .
 
     $default  reduce using rule 53 (Expr)
 
 
-state 271
+State 271
 
    57 Expr: FOR VarDeclaration EQUALS Expr COMMA Expr . COMMA Expr IN Expr
 
     COMMA  shift, and go to state 285
 
 
-state 272
+State 272
 
    58 Expr: FOREACH VarDeclaration FROM Expr IN Expr .
 
     $default  reduce using rule 58 (Expr)
 
 
-state 273
+State 273
 
    55 Expr: IF Expr THEN Expr ELSE Expr .
 
     $default  reduce using rule 55 (Expr)
 
 
-state 274
+State 274
 
    54 Expr: STATIC VarDeclaration EQUALS Expr IN Expr .
 
     $default  reduce using rule 54 (Expr)
 
 
-state 275
+State 275
 
   116 Case: TAG IN . Expr
 
@@ -4483,14 +4483,14 @@ state 275
     STRING_EXPR   go to state 110
 
 
-state 276
+State 276
 
   115 Case: TAG VarDeclaration . IN Expr
 
     IN  shift, and go to state 287
 
 
-state 277
+State 277
 
   117 Case: OTHERWISE IN . Expr
 
@@ -4530,7 +4530,7 @@ state 277
     STRING_EXPR   go to state 110
 
 
-state 278
+State 278
 
   118 CaseList: Case PIPE . CaseList
 
@@ -4541,14 +4541,14 @@ state 278
     CaseList  go to state 289
 
 
-state 279
+State 279
 
    56 Expr: CASE Expr OF OPEN CaseList CLOSE .
 
     $default  reduce using rule 56 (Expr)
 
 
-state 280
+State 280
 
     9 Definition: DATATYPE ArrowType AS TAG OPEN VarDeclarations CLOSE Expr WITH OPEN . FunctionList CLOSE
 
@@ -4559,21 +4559,21 @@ state 280
     FunctionList  go to state 291
 
 
-state 281
+State 281
 
   102 Value: TAG DOUBLE_COLON TAG OPEN_BRACKET OPEN_BRACKET MapsList CLOSE_BRACKET . CLOSE_BRACKET
 
     CLOSE_BRACKET  shift, and go to state 292
 
 
-state 282
+State 282
 
    96 Value: OPEN_S_BRACKET INTEGER_EXPR OF TAG IN Expr CLOSE_S_BRACKET .
 
     $default  reduce using rule 96 (Value)
 
 
-state 283
+State 283
 
    95 Value: ARRAY WITH Expr OF OPEN TAG IN . Expr CLOSE
 
@@ -4613,7 +4613,7 @@ state 283
     STRING_EXPR   go to state 110
 
 
-state 284
+State 284
 
    94 Value: BOX WITH Expr OF OPEN TAG IN . Expr CLOSE
 
@@ -4653,7 +4653,7 @@ state 284
     STRING_EXPR   go to state 110
 
 
-state 285
+State 285
 
    57 Expr: FOR VarDeclaration EQUALS Expr COMMA Expr COMMA . Expr IN Expr
 
@@ -4693,14 +4693,14 @@ state 285
     STRING_EXPR   go to state 110
 
 
-state 286
+State 286
 
   116 Case: TAG IN Expr .
 
     $default  reduce using rule 116 (Case)
 
 
-state 287
+State 287
 
   115 Case: TAG VarDeclaration IN . Expr
 
@@ -4740,21 +4740,21 @@ state 287
     STRING_EXPR   go to state 110
 
 
-state 288
+State 288
 
   117 Case: OTHERWISE IN Expr .
 
     $default  reduce using rule 117 (Case)
 
 
-state 289
+State 289
 
   118 CaseList: Case PIPE CaseList .
 
     $default  reduce using rule 118 (CaseList)
 
 
-state 290
+State 290
 
    12 FunctionList: Function . FunctionList
    13             | Function .
@@ -4768,77 +4768,77 @@ state 290
     FunctionList  go to state 297
 
 
-state 291
+State 291
 
     9 Definition: DATATYPE ArrowType AS TAG OPEN VarDeclarations CLOSE Expr WITH OPEN FunctionList . CLOSE
 
     CLOSE  shift, and go to state 298
 
 
-state 292
+State 292
 
   102 Value: TAG DOUBLE_COLON TAG OPEN_BRACKET OPEN_BRACKET MapsList CLOSE_BRACKET CLOSE_BRACKET .
 
     $default  reduce using rule 102 (Value)
 
 
-state 293
+State 293
 
    95 Value: ARRAY WITH Expr OF OPEN TAG IN Expr . CLOSE
 
     CLOSE  shift, and go to state 299
 
 
-state 294
+State 294
 
    94 Value: BOX WITH Expr OF OPEN TAG IN Expr . CLOSE
 
     CLOSE  shift, and go to state 300
 
 
-state 295
+State 295
 
    57 Expr: FOR VarDeclaration EQUALS Expr COMMA Expr COMMA Expr . IN Expr
 
     IN  shift, and go to state 301
 
 
-state 296
+State 296
 
   115 Case: TAG VarDeclaration IN Expr .
 
     $default  reduce using rule 115 (Case)
 
 
-state 297
+State 297
 
    12 FunctionList: Function FunctionList .
 
     $default  reduce using rule 12 (FunctionList)
 
 
-state 298
+State 298
 
     9 Definition: DATATYPE ArrowType AS TAG OPEN VarDeclarations CLOSE Expr WITH OPEN FunctionList CLOSE .
 
     $default  reduce using rule 9 (Definition)
 
 
-state 299
+State 299
 
    95 Value: ARRAY WITH Expr OF OPEN TAG IN Expr CLOSE .
 
     $default  reduce using rule 95 (Value)
 
 
-state 300
+State 300
 
    94 Value: BOX WITH Expr OF OPEN TAG IN Expr CLOSE .
 
     $default  reduce using rule 94 (Value)
 
 
-state 301
+State 301
 
    57 Expr: FOR VarDeclaration EQUALS Expr COMMA Expr COMMA Expr IN . Expr
 
@@ -4878,7 +4878,7 @@ state 301
     STRING_EXPR   go to state 110
 
 
-state 302
+State 302
 
    57 Expr: FOR VarDeclaration EQUALS Expr COMMA Expr COMMA Expr IN Expr .
 

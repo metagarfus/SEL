@@ -50,7 +50,7 @@ typedef struct value_data_type {
         
         struct {
             struct declaration *options;
-        } union;
+        } union_type;
 
         struct {
             struct value_data_type *target;
@@ -117,6 +117,7 @@ typedef struct declaration {
     char *name;
     value_data_type_t *type;
 } declaration_t;
+
 
 typedef struct free_variables {
     declaration_t *variables;
@@ -315,7 +316,7 @@ typedef struct tag_tuple {
 
         struct {
             mapping_t *arguments;  
-        } record;
+        } union_value;
 
         struct {
             struct tag_tuple *l_value, *r_value;
